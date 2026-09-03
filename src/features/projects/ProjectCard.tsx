@@ -12,11 +12,13 @@ function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Image */}
       <div className="aspect-video bg-white/5">
         {project.image ? (
-          <img
-            src={project.image}
-            alt={`${project.title} project screenshot`}
-            className="h-full w-full object-cover"
-          />
+          <div className="h-56 w-full overflow-hidden rounded-t-2xl bg-white/5">
+            <img
+              src={project.image}
+              alt={`${project.title} project screenshot`}
+              className="h-full w-full object-contain"
+            />
+          </div>
         ) : (
           <div className="flex h-full items-center justify-center text-sm text-gray-500">
             Project Preview

@@ -8,4 +8,5 @@ export type Project = {
   githubUrl: string;
   liveUrl: string;
   image: string;
+  featured?: boolean;
 };
