@@ -1,7 +1,14 @@
 /** @format */
 
+import MainLayout from "./layouts/MainLayout";
+import Hero from "./features/hero/Hero";
+
 function App() {
-  return <h1 className="text-4xl font-bold text-indigo-500">Portfolio</h1>;
+  return (
+    <MainLayout>
+      <Hero />
+    </MainLayout>
+  );
 }
 
 export default App;
