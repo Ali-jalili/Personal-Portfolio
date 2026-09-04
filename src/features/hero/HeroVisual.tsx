@@ -14,12 +14,27 @@ function HeroVisual() {
         delay: 0.2,
         ease: [0.23, 1, 0.32, 1],
       }}
-      className="relative hidden h-[400px] items-center justify-center lg:flex"
+      className="
+        relative
+        hidden
+        h-[400px]
+        items-center
+        justify-center
+        lg:flex
+      "
     >
       {/* Ambient glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute h-[360px] w-[360px] rounded-full opacity-30 blur-[100px]"
+        className="
+          pointer-events-none
+          absolute
+          h-[360px]
+          w-[360px]
+          rounded-full
+          opacity-30
+          blur-[100px]
+        "
         style={{
           background:
             "radial-gradient(circle, var(--accent-glow), transparent 68%)",
@@ -62,7 +77,13 @@ function HeroVisual() {
         {/* Grid */}
         <div
           aria-hidden="true"
-          className="grid-bg pointer-events-none absolute inset-0 opacity-50"
+          className="
+            grid-bg
+            pointer-events-none
+            absolute
+            inset-0
+            opacity-50
+          "
         />
 
         {/* Decorative rings */}
@@ -96,7 +117,15 @@ function HeroVisual() {
 
         {/* Header */}
         <div className="relative flex items-center justify-between">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
+          <span
+            className="
+              font-mono
+              text-[10px]
+              uppercase
+              tracking-[0.18em]
+              text-[var(--ink-faint)]
+            "
+          >
             Personal Portfolio
           </span>
 
@@ -107,7 +136,15 @@ function HeroVisual() {
 
         {/* Identity */}
         <div className="relative mt-16">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent-strong)]">
+          <span
+            className="
+              font-mono
+              text-[10px]
+              uppercase
+              tracking-[0.2em]
+              text-[var(--accent-strong)]
+            "
+          >
             A.J
           </span>
 
@@ -150,22 +187,53 @@ function HeroVisual() {
               border-[var(--line-strong)]
             "
           >
-            <span className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent)] shadow-[0_0_24px_var(--accent-glow)]" />
+            <span
+              className="
+                absolute
+                left-1/2
+                top-1/2
+                h-3
+                w-3
+                -translate-x-1/2
+                -translate-y-1/2
+                rounded-full
+                bg-[var(--accent)]
+                shadow-[0_0_24px_var(--accent-glow)]
+              "
+            />
 
-            <span className="absolute inset-3 rounded-full border border-dashed border-[var(--line)]" />
+            <span
+              className="
+                absolute
+                inset-3
+                rounded-full
+                border
+                border-dashed
+                border-[var(--line)]
+              "
+            />
           </motion.div>
         </div>
 
-        {/* Bottom */}
+        {/* Bottom information */}
         <div className="absolute bottom-7 left-7 right-7">
           <div className="flex items-end justify-between">
             <div>
-              <span className="block font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
-                Status
+              <span
+                className="
+                  block
+                  font-mono
+                  text-[9px]
+                  uppercase
+                  tracking-[0.16em]
+                  text-[var(--ink-faint)]
+                "
+              >
+                Focus
               </span>
 
               <span className="mt-2 block text-sm font-medium text-[var(--ink)]">
-                Building & Shipping
+                Interfaces & Product Experience
               </span>
             </div>
 
@@ -177,22 +245,39 @@ function HeroVisual() {
           <div className="mt-5 h-px bg-[var(--line)]" />
 
           <div className="mt-3 flex items-center justify-between">
-            <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-              Digital products
+            <span
+              className="
+                font-mono
+                text-[9px]
+                uppercase
+                tracking-[0.14em]
+                text-[var(--ink-faint)]
+              "
+            >
+              Practical web applications
             </span>
 
-            <span className="font-mono text-[9px] text-[var(--accent-strong)]">
-              ● ONLINE
+            <span
+              className="
+                font-mono
+                text-[9px]
+                text-[var(--accent-strong)]
+              "
+            >
+              ● ACTIVE
             </span>
           </div>
         </div>
       </motion.div>
 
-      {/* Small floating label */}
+      {/* Current work */}
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{
+          duration: 0.6,
+          delay: 0.8,
+        }}
         className="
           absolute
           -bottom-1
@@ -206,8 +291,17 @@ function HeroVisual() {
           shadow-[0_12px_30px_rgba(20,24,40,0.07)]
         "
       >
-        <span className="block font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-          currently building
+        <span
+          className="
+            block
+            font-mono
+            text-[9px]
+            uppercase
+            tracking-[0.14em]
+            text-[var(--ink-faint)]
+          "
+        >
+          Currently building
         </span>
 
         <span className="mt-1 block text-sm font-medium text-[var(--ink)]">

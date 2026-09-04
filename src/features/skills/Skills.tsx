@@ -17,49 +17,49 @@ const ease = [0.23, 1, 0.32, 1] as const;
 const skills = [
   {
     name: "React",
-    category: "Interface",
+    category: "Core",
     icon: Code2,
     position: "left-[2%] top-[11%]",
   },
   {
     name: "TypeScript",
-    category: "Language",
+    category: "Core",
     icon: Terminal,
     position: "left-[27%] top-[2%]",
   },
   {
-    name: "Tailwind CSS",
-    category: "UI",
-    icon: Palette,
-    position: "right-[5%] top-[11%]",
-  },
-  {
     name: "JavaScript",
-    category: "Language",
+    category: "Core",
     icon: Layers3,
     position: "right-[-1%] top-[43%]",
   },
   {
+    name: "Tailwind CSS",
+    category: "UI & Styling",
+    icon: Palette,
+    position: "right-[5%] top-[11%]",
+  },
+  {
     name: "Supabase",
-    category: "Backend",
+    category: "Data & Backend",
     icon: Server,
     position: "right-[8%] bottom-[10%]",
   },
   {
     name: "PostgreSQL",
-    category: "Database",
+    category: "Data & Backend",
     icon: Database,
     position: "left-[27%] bottom-[2%]",
   },
   {
     name: "Git / GitHub",
-    category: "Workflow",
+    category: "Development",
     icon: GitBranch,
     position: "left-[1%] bottom-[11%]",
   },
   {
     name: "Vite",
-    category: "Tooling",
+    category: "Development",
     icon: Workflow,
     position: "left-[-1%] top-[43%]",
   },
@@ -229,12 +229,12 @@ function Skills() {
             </h2>
 
             <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-[var(--ink-muted)]">
-              A focused stack for building modern interfaces, connecting data,
-              and shipping reliable web products.
+              A focused stack for building modern interfaces, working with
+              structured data, and shipping reliable web applications.
             </p>
           </div>
 
-          {/* ================= DESKTOP SKILL MAP ================= */}
+          {/* Desktop Skill Map */}
           <div className="relative mx-auto mt-14 hidden h-[560px] max-w-[980px] md:block lg:h-[600px]">
             {/* Grid */}
             <div
@@ -272,7 +272,7 @@ function Skills() {
               }}
             />
 
-            {/* Connecting lines */}
+            {/* Connecting Lines */}
             <svg
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 h-full w-full opacity-50"
@@ -344,9 +344,8 @@ function Skills() {
             ))}
           </div>
 
-          {/* ================= MOBILE SKILL MAP ================= */}
+          {/* Mobile Skill Map */}
           <div className="mt-12 md:hidden">
-            {/* Mobile Core */}
             <div className="relative mx-auto mb-10 h-40 w-full max-w-sm">
               <div
                 aria-hidden="true"
@@ -371,7 +370,6 @@ function Skills() {
               <CenterCore />
             </div>
 
-            {/* Mobile cards */}
             <div className="grid grid-cols-2 gap-3">
               {skills.map((skill, index) => (
                 <SkillCard
@@ -384,10 +382,10 @@ function Skills() {
             </div>
           </div>
 
-          {/* Bottom */}
+          {/* Bottom Meta */}
           <div className="mt-8 flex items-center justify-between border-t border-[var(--line)] pt-5">
             <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-              React · TypeScript · Data · Tooling
+              Core · Data · UI · Development
             </span>
 
             <span className="hidden font-mono text-[9px] text-[var(--ink-faint)] sm:block">

@@ -8,6 +8,7 @@ import Skills from "./features/skills/Skills";
 import Projects from "./features/projects/Projects";
 import Journey from "./features/journey/Journey";
 import Contact from "./features/contact/Contact";
+import Currently from "./features/currently/Currently";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Skills />
       <Projects />
       <Journey />
+      <Currently />
       <Contact />
     </MainLayout>
   );

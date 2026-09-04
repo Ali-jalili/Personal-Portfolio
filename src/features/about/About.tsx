@@ -21,7 +21,7 @@ function About() {
           }}
           className="relative border-t border-[var(--line)] pt-8"
         >
-          {/* Section label */}
+          {/* Section header */}
           <div className="flex items-center justify-between">
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
               About
@@ -32,34 +32,42 @@ function About() {
             </span>
           </div>
 
-          {/* Main content */}
-          <div className="mt-14 max-w-5xl">
+          {/* Main statement */}
+          <div className="mt-12 max-w-5xl">
             <h2 className="text-heading text-[var(--ink)]">
-              I care about building things that are{" "}
+              I&apos;m a frontend developer who{" "}
               <span className="serif-italic text-[var(--accent-strong)]">
-                simple, useful,
-              </span>{" "}
-              and well made.
+                learns by building.
+              </span>
             </h2>
-
-            <div className="mt-8 max-w-3xl">
-              <p className="text-lede text-[var(--ink-muted)]">
-                I&apos;m a Junior Frontend Developer focused on building modern
-                web applications with React and TypeScript. I enjoy turning
-                ideas into clean interfaces while keeping the underlying
-                architecture understandable and maintainable.
-              </p>
-
-              <p className="mt-5 text-base leading-8 text-[var(--ink-muted)]">
-                Most of my learning comes through building real projects. Along
-                the way, I&apos;ve worked with authentication, APIs, data
-                management, reusable components, and frontend architecture.
-              </p>
-            </div>
           </div>
 
-          {/* Bottom line */}
-          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-[var(--line)] pt-5">
+          {/* Story */}
+          <div className="mt-8 max-w-3xl">
+            <p className="text-lede text-[var(--ink-muted)]">
+              I focus on turning ideas into practical, usable products. My
+              learning path has been driven by building real applications rather
+              than simply following tutorials.
+            </p>
+
+            <p className="mt-5 text-base leading-8 text-[var(--ink-muted)]">
+              Through each project, I&apos;ve worked through challenges around
+              application structure, data, authentication, reusable interfaces,
+              and the decisions that make a product easier to understand and
+              maintain.
+            </p>
+
+            <p className="mt-5 text-base leading-8 text-[var(--ink-muted)]">
+              I enjoy understanding how things work beneath the surface, solving
+              problems thoughtfully, and improving what I build through
+              iteration. I&apos;m now looking to bring that hands-on mindset
+              into a professional team and keep growing through real
+              collaboration.
+            </p>
+          </div>
+
+          {/* Bottom meta */}
+          <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-[var(--line)] pt-5">
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
               Based in Iran
             </span>

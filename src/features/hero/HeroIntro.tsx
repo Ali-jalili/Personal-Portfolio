@@ -33,7 +33,7 @@ function CharReveal({
 function HeroIntro() {
   return (
     <div className="relative z-[1]">
-      {/* Top information */}
+      {/* Eyebrow */}
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ function HeroIntro() {
         className="flex flex-wrap items-center gap-x-4 gap-y-2"
       >
         <span className="font-mono text-xs uppercase tracking-[0.16em] text-[var(--ink-faint)]">
-          Frontend Developer · React & TypeScript
+          Frontend Developer
         </span>
 
         <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--ink-faint)]">
@@ -85,14 +85,11 @@ function HeroIntro() {
         </span>
       </h1>
 
-      {/* Description — same reveal-mask system */}
+      {/* Value proposition */}
       <p className="reveal-mask mt-6 block max-w-[58ch] text-lede text-[var(--ink-muted)]">
         <span style={{ animationDelay: "0.5s" }}>
-          I build modern web experiences with{" "}
-          <span className="serif-italic text-[var(--ink)]">React</span> and{" "}
-          <span className="serif-italic text-[var(--ink)]">TypeScript</span>,
-          focusing on clean architecture, thoughtful UI, and products that feel
-          good to use.
+          I build practical web applications with a focus on thoughtful
+          interfaces, clean architecture, and reliable user experiences.
         </span>
       </p>
     </div>
