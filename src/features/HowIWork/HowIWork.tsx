@@ -27,7 +27,7 @@ const steps = [
 
 function HowIWork() {
   return (
-    <section id="how-i-work" className="section-tight relative">
+    <section id="how-i-work" className="section-tight relative overflow-hidden">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -64,14 +64,15 @@ function HowIWork() {
 
           {/* Process */}
           <div className="relative mt-16">
-            {/* Connecting line */}
+            {/* Desktop connecting line */}
             <div
               aria-hidden="true"
               className="
+                pointer-events-none
                 absolute
-                left-0
-                right-0
-                top-[15px]
+                left-4
+                right-4
+                top-4
                 hidden
                 h-px
                 bg-[var(--line)]
@@ -91,7 +92,7 @@ function HowIWork() {
                     delay: index * 0.12,
                     ease,
                   }}
-                  className="relative"
+                  className="group relative min-w-0"
                 >
                   {/* Step marker */}
                   <div className="relative z-10 flex items-center gap-3">
@@ -100,6 +101,7 @@ function HowIWork() {
                         grid
                         h-8
                         w-8
+                        shrink-0
                         place-items-center
                         rounded-full
                         border
@@ -111,11 +113,13 @@ function HowIWork() {
                         transition-all
                         duration-300
                         group-hover:border-[var(--accent)]
+                        group-hover:text-[var(--accent)]
                       "
                     >
                       {step.number}
                     </span>
 
+                    {/* Mobile connector */}
                     {index < steps.length - 1 && (
                       <span
                         aria-hidden="true"
@@ -138,6 +142,9 @@ function HowIWork() {
                         font-medium
                         tracking-[-0.04em]
                         text-[var(--ink)]
+                        transition-colors
+                        duration-300
+                        group-hover:text-[var(--accent-strong)]
                       "
                     >
                       {step.title}

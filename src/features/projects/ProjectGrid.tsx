@@ -60,7 +60,7 @@ function ProjectGrid({ projects }: ProjectGridProps) {
   return (
     <div className="mt-12 md:mt-14">
       {/* Projects */}
-      <div className="relative pb-7">
+      <div className="relative pb-3">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={page}
@@ -105,39 +105,30 @@ function ProjectGrid({ projects }: ProjectGridProps) {
       </div>
 
       {/* Navigation */}
-      {/* Navigation */}
-      <div
-        className="
-    mt-1
-    flex
-    items-center
-    justify-between
-    border-t
-    border-[var(--line)]
-    pt-5
-  "
-      >
-        {/* Page indicator */}
+      <div className="mt-6 flex items-center justify-center gap-4">
         <span
           className="
-      font-mono
-      text-[9px]
-      uppercase
-      tracking-[0.14em]
-      text-[var(--ink-faint)]
-    "
+            order-2
+            min-w-12
+            text-center
+            font-mono
+            text-[9px]
+            uppercase
+            tracking-[0.14em]
+            text-[var(--ink-faint)]
+          "
         >
           {String(page + 1).padStart(2, "0")} /{" "}
           {String(totalPages).padStart(2, "0")}
         </span>
 
-        {/* Navigation buttons */}
-        <div className="flex items-center gap-2">
+        <div className="contents">
           <motion.button
             type="button"
             onClick={goPrevious}
             disabled={page === 0}
             aria-label="Previous projects"
+            title="Previous projects"
             whileHover={page > 0 ? { x: -2 } : undefined}
             whileTap={page > 0 ? { scale: 0.92 } : undefined}
             className="
@@ -177,6 +168,7 @@ function ProjectGrid({ projects }: ProjectGridProps) {
             onClick={goNext}
             disabled={page === totalPages - 1}
             aria-label="Next projects"
+            title="Next projects"
             whileHover={page < totalPages - 1 ? { x: 2 } : undefined}
             whileTap={page < totalPages - 1 ? { scale: 0.92 } : undefined}
             className="

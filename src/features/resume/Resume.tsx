@@ -1,13 +1,16 @@
 /** @format */
 
 import { motion } from "framer-motion";
-import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
+import { ArrowDownToLine, ArrowUpRight, FileText } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 function Resume() {
   return (
-    <section id="resume" className="section-tight relative">
+    <section
+      id="resume"
+      className="section-tight relative overflow-hidden py-8 md:py-10"
+    >
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,8 +18,8 @@ function Resume() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease }}
         >
-          {/* Section Label */}
-          <div className="flex items-center justify-between border-t border-[var(--line)] pt-7">
+          {/* Header */}
+          <div className="flex items-center justify-between border-t border-[var(--line)] pt-6">
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
               Resume
             </span>
@@ -26,101 +29,166 @@ function Resume() {
             </span>
           </div>
 
-          {/* Content */}
-          <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <h2 className="text-heading text-[var(--ink)]">
-                A closer look at{" "}
-                <span className="serif-italic text-[var(--accent-strong)]">
-                  my journey.
-                </span>
-              </h2>
+          {/* Resume CTA */}
+          <div className="relative mt-7 overflow-hidden border border-[var(--line)]">
+            {/* Decorative accent */}
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none absolute
+                -right-16 -top-16
+                h-44 w-44
+                rounded-full
+                border border-[var(--line)]
+              "
+            />
 
-              <p className="mt-4 max-w-lg text-[15px] leading-7 text-[var(--ink-faint)]">
-                My experience, skills, and background in one document.
-              </p>
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none absolute
+                -right-7 -top-7
+                h-28 w-28
+                rounded-full
+                border border-[var(--line)]
+              "
+            />
+
+            <div className="relative grid gap-8 p-6 sm:p-8 md:grid-cols-[1fr_220px] md:items-center md:p-9">
+              {/* Copy */}
+              <div className="max-w-2xl">
+                <div className="mb-5 flex items-center gap-3">
+                  <div
+                    className="
+                      flex h-9 w-9 shrink-0 items-center justify-center
+                      border border-[var(--line)]
+                      bg-[var(--surface)]
+                    "
+                  >
+                    <FileText
+                      size={15}
+                      strokeWidth={1.5}
+                      className="text-[var(--accent-strong)]"
+                    />
+                  </div>
+
+                  <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
+                    Curriculum Vitae
+                  </span>
+                </div>
+
+                <h2 className="text-heading text-[var(--ink)]">
+                  Want the{" "}
+                  <span className="serif-italic text-[var(--accent-strong)]">
+                    full picture?
+                  </span>
+                </h2>
+
+                <p className="mt-4 max-w-xl text-[14px] leading-7 text-[var(--ink-muted)]">
+                  A concise overview of my skills, projects, and frontend
+                  development journey
+                </p>
+              </div>
+
+              {/* Actions */}
+              <div className="relative flex flex-col gap-3">
+                {/* Primary */}
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    group relative flex min-h-12 items-center justify-between
+                    overflow-hidden
+                    border border-[var(--ink)]
+                    bg-[var(--ink)]
+                    px-4
+                    text-[var(--surface)]
+                    transition-all duration-300
+                    hover:-translate-y-0.5
+                  "
+                >
+                  <span className="relative z-10 font-mono text-[9px] font-medium uppercase tracking-[0.14em]">
+                    View CV
+                  </span>
+
+                  <span
+                    className="
+                      relative z-10 flex h-7 w-7 items-center justify-center
+                      border border-white/20
+                      transition-transform duration-300
+                      group-hover:translate-x-0.5
+                      group-hover:-translate-y-0.5
+                    "
+                  >
+                    <ArrowUpRight size={13} strokeWidth={1.7} />
+                  </span>
+
+                  <span
+                    aria-hidden="true"
+                    className="
+                      absolute inset-0
+                      translate-y-full
+                      bg-[var(--accent-strong)]
+                      transition-transform duration-300
+                      group-hover:translate-y-0
+                    "
+                  />
+                </a>
+
+                {/* Secondary */}
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="
+                    group flex min-h-10 items-center justify-between
+                    border border-[var(--line)]
+                    px-4
+                    text-[var(--ink-muted)]
+                    transition-all duration-300
+                    hover:border-[var(--line-strong)]
+                    hover:text-[var(--ink)]
+                  "
+                >
+                  <span className="font-mono text-[9px] font-medium uppercase tracking-[0.14em]">
+                    Download PDF
+                  </span>
+
+                  <ArrowDownToLine
+                    size={13}
+                    strokeWidth={1.7}
+                    className="
+                      transition-transform duration-300
+                      group-hover:translate-y-0.5
+                    "
+                  />
+                </a>
+              </div>
             </div>
 
-            {/* Actions */}
-            <div className="flex shrink-0 items-center gap-3">
-              {/* View CV */}
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  group
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-[var(--line-strong)]
-                  bg-[var(--surface)]
-                  px-5
-                  py-3
-                  font-mono
-                  text-[9px]
-                  uppercase
-                  tracking-[0.12em]
-                  text-[var(--ink)]
-                  transition-all
-                  duration-300
-                  hover:-translate-y-0.5
-                  hover:border-[var(--accent-strong)]
-                  hover:shadow-[0_8px_24px_rgba(20,24,40,0.08)]
-                "
-              >
-                View CV
-                <ArrowUpRight
-                  size={13}
-                  strokeWidth={1.5}
-                  className="
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-0.5
-                    group-hover:-translate-y-0.5
-                  "
-                />
-              </a>
+            {/* Bottom info */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[var(--line)] px-6 py-4 sm:px-8 md:px-9">
+              <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
+                Frontend Developer
+              </span>
 
-              {/* Download CV */}
-              <a
-                href="/resume.pdf"
-                download
-                className="
-                  group
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-[var(--ink)]
-                  bg-[var(--ink)]
-                  px-5
-                  py-3
-                  font-mono
-                  text-[9px]
-                  uppercase
-                  tracking-[0.12em]
-                  text-[var(--surface)]
-                  transition-all
-                  duration-300
-                  hover:-translate-y-0.5
-                  hover:shadow-[0_8px_24px_rgba(20,24,40,0.12)]
-                "
-              >
-                Download CV
-                <ArrowDownToLine
-                  size={13}
-                  strokeWidth={1.5}
-                  className="
-                    transition-transform
-                    duration-300
-                    group-hover:translate-y-0.5
-                  "
-                />
-              </a>
+              <span
+                aria-hidden="true"
+                className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
+              />
+
+              <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
+                React · TypeScript
+              </span>
+
+              <span
+                aria-hidden="true"
+                className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
+              />
+
+              <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--accent-strong)]">
+                Open to opportunities
+              </span>
             </div>
           </div>
         </motion.div>

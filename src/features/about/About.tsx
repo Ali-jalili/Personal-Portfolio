@@ -6,10 +6,7 @@ const ease = [0.23, 1, 0.32, 1] as const;
 
 function About() {
   return (
-    <section
-      id="about"
-      className="section-tight relative overflow-hidden pb-10"
-    >
+    <section id="about" className="section-tight relative overflow-hidden">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

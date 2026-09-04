@@ -1,11 +1,19 @@
 /** @format */
 
 function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-white/10 py-6">
-      <p className="text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Ali Jalili. All rights reserved.
-      </p>
+    <footer className="border-t border-[var(--line)] py-6">
+      <div className="container flex flex-col items-center justify-between gap-2 sm:flex-row">
+        <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
+          © {year} Ali Jalili
+        </p>
+
+        <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
+          Built with React · TypeScript
+        </p>
+      </div>
     </footer>
   );
 }

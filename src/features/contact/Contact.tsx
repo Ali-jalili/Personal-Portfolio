@@ -18,14 +18,14 @@ const socials = [
 
 function Contact() {
   return (
-    <section id="contact" className="section-tight relative">
+    <section id="contact" className="section-tight relative overflow-hidden">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.9, ease }}
-          className="relative overflow-hidden border-t border-[var(--line)] pt-7"
+          className="relative border-t border-[var(--line)] pt-7"
         >
           {/* Header */}
           <div className="flex items-center justify-between">
@@ -34,12 +34,12 @@ function Contact() {
             </span>
 
             <span className="font-mono text-[10px] text-[var(--ink-faint)]">
-              06
+              07
             </span>
           </div>
 
           {/* Content */}
-          <div className="mt-14 max-w-4xl">
+          <div className="mt-12 max-w-4xl">
             <h2 className="text-heading text-[var(--ink)]">
               Let&apos;s build something{" "}
               <span className="serif-italic text-[var(--accent-strong)]">
@@ -47,7 +47,7 @@ function Contact() {
               </span>
             </h2>
 
-            <p className="mt-6 max-w-2xl text-lede text-[var(--ink-muted)]">
+            <p className="mt-5 max-w-2xl text-lede text-[var(--ink-muted)]">
               I&apos;m currently open to junior frontend opportunities and
               meaningful collaborations. If you&apos;re building something
               interesting, I&apos;d be happy to connect.
@@ -55,13 +55,15 @@ function Contact() {
           </div>
 
           {/* Actions */}
-          <div className="mt-10 flex flex-wrap items-center gap-3">
+          <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
-              href="mailto:your-email@example.com"
+              href="mailto:ali.jalili.dev@gmail.com"
               className="btn-primary group inline-flex items-center gap-2"
             >
               <Mail size={16} strokeWidth={1.5} aria-hidden="true" />
-              Get in touch
+
+              <span>Get in touch</span>
+
               <ArrowUpRight
                 size={16}
                 strokeWidth={1.5}
@@ -76,16 +78,22 @@ function Contact() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ghost"
+                className="btn-ghost group inline-flex items-center gap-2"
               >
-                {social.label}
-                <ArrowUpRight size={14} strokeWidth={1.5} aria-hidden="true" />
+                <span>{social.label}</span>
+
+                <ArrowUpRight
+                  size={14}
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                  className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </a>
             ))}
           </div>
 
           {/* Bottom info */}
-          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-[var(--line)] pt-5">
+          <div className="mt-12 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-[var(--line)] pt-5">
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
               Based in Iran
             </span>
@@ -95,8 +103,23 @@ function Contact() {
               className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
             />
 
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
-              Open to opportunities
+            <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--accent-strong)]">
+              <span
+                aria-hidden="true"
+                className="
+                  relative
+                  h-1.5
+                  w-1.5
+                  rounded-full
+                  bg-[var(--ok)]
+                  before:absolute
+                  before:inset-0
+                  before:animate-pulse-ring
+                  before:rounded-full
+                  before:bg-[var(--ok)]
+                "
+              />
+              Open to Work
             </span>
 
             <span
@@ -104,8 +127,8 @@ function Contact() {
               className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
             />
 
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--accent-strong)]">
-              Available for collaboration
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
+              Junior Frontend Developer
             </span>
           </div>
         </motion.div>

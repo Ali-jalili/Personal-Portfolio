@@ -6,7 +6,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 function Currently() {
   return (
-    <section id="currently" className="section-tight relative overflow-hidden">
+    <section id="currently" className="section-tight relative">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ function Currently() {
             </span>
 
             <span className="font-mono text-[10px] text-[var(--ink-faint)]">
-              05
+              06
             </span>
           </div>
 
@@ -35,61 +35,62 @@ function Currently() {
               </span>
             </h2>
 
-            <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[var(--ink-faint)]">
+            <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[var(--ink-muted)]">
               I&apos;m currently focused on strengthening my frontend
-              engineering skills through real-world projects, improving the way
-              I think about architecture and product decisions, and preparing to
-              contribute within a professional development team.
+              engineering skills through real-world projects, improving how I
+              think about architecture and product decisions, and preparing to
+              contribute to a professional development team.
             </p>
           </div>
 
-          {/* Status */}
-          <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-[var(--line)] pt-5">
-            <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-              <span
-                aria-hidden="true"
-                className="
-                  relative
-                  h-1.5
-                  w-1.5
-                  rounded-full
-                  bg-[var(--ok)]
-                  before:absolute
-                  before:inset-0
-                  before:animate-pulse-ring
-                  before:rounded-full
-                  before:bg-[var(--ok)]
-                "
-              />
-              Open to opportunities
-            </span>
+          {/* Current focus */}
+          <div className="mt-10 border-t border-[var(--line)] pt-5">
+            <div className="grid gap-5 sm:grid-cols-3 sm:gap-8">
+              <div>
+                <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--ink-faint)]">
+                  Focus
+                </span>
 
-            <span
-              aria-hidden="true"
-              className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
-            />
+                <p className="mt-2 text-sm text-[var(--ink)]">
+                  Frontend Engineering
+                </p>
+              </div>
 
-            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-              Learning
-            </span>
+              <div>
+                <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--ink-faint)]">
+                  Learning
+                </span>
 
-            <span
-              aria-hidden="true"
-              className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
-            />
+                <p className="mt-2 text-sm text-[var(--ink)]">
+                  Architecture &amp; Product Thinking
+                </p>
+              </div>
 
-            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-              Building
-            </span>
+              <div>
+                <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--ink-faint)]">
+                  Direction
+                </span>
 
-            <span
-              aria-hidden="true"
-              className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
-            />
-
-            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--accent-strong)]">
-              Growing
-            </span>
+                <p className="mt-2 inline-flex items-center gap-2 text-sm text-[var(--accent-strong)]">
+                  <span
+                    aria-hidden="true"
+                    className="
+                      relative
+                      h-1.5
+                      w-1.5
+                      rounded-full
+                      bg-[var(--ok)]
+                      before:absolute
+                      before:inset-0
+                      before:animate-pulse-ring
+                      before:rounded-full
+                      before:bg-[var(--ok)]
+                    "
+                  />
+                  Open to opportunities
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

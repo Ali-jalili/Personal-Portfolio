@@ -9,7 +9,7 @@ import Projects from "./features/projects/Projects";
 
 import Contact from "./features/contact/Contact";
 import Currently from "./features/currently/Currently";
-import HowIWork from "./features/HowIWork/Journey";
+import HowIWork from "./features/HowIWork/HowIWork";
 import Resume from "./features/resume/Resume";
 
 function App() {
