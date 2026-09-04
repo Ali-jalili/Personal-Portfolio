@@ -4,143 +4,146 @@ import { motion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const journeySteps = [
+const steps = [
   {
     number: "01",
-    label: "START",
-    title: "Learn the fundamentals",
+    title: "Understand",
     description:
-      "Started by building a strong foundation in frontend development and understanding how the web works beneath the interface.",
+      "Start with the problem, the user, and what the product actually needs.",
   },
   {
     number: "02",
-    label: "BUILD",
-    title: "Turn concepts into products",
+    title: "Build",
     description:
-      "Moved from isolated exercises to complete applications where different concepts had to work together as one system.",
+      "Turn the idea into a clear interface with structure that stays easy to work with.",
   },
   {
     number: "03",
-    label: "REFINE",
-    title: "Learn through real problems",
+    title: "Refine",
     description:
-      "Each project introduced new challenges around architecture, data flow, authentication, and maintainable code.",
-  },
-  {
-    number: "04",
-    label: "NEXT",
-    title: "Build better, not just more",
-    description:
-      "The goal is no longer just learning new tools. It is becoming a developer who can make thoughtful technical decisions and build better products.",
+      "Test, revisit decisions, and improve the result instead of stopping at the first working version.",
   },
 ];
 
-function Journey() {
+function HowIWork() {
   return (
-    <section id="journey" className="section-tight relative overflow-hidden">
+    <section id="how-i-work" className="section-tight relative">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.85, ease }}
-          className="border-t border-[var(--line)] pt-7"
+          transition={{ duration: 0.9, ease }}
         >
           {/* Header */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between border-t border-[var(--line)] pt-7">
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
-              Journey
+              How I Work
             </span>
 
             <span className="font-mono text-[10px] text-[var(--ink-faint)]">
-              04
+              05
             </span>
           </div>
 
           {/* Intro */}
-          <div className="mt-10 max-w-3xl">
+          <div className="mt-12 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <h2 className="text-heading text-[var(--ink)]">
-              From learning to{" "}
+              From idea to{" "}
               <span className="serif-italic text-[var(--accent-strong)]">
-                building.
-              </span>
+                better
+              </span>{" "}
+              product.
             </h2>
 
-            <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[var(--ink-faint)]">
-              My development path has been shaped by building, breaking, and
-              improving real applications. Each step has changed the way I think
-              about frontend development.
+            <p className="max-w-xl text-[15px] leading-7 text-[var(--ink-muted)] lg:justify-self-end">
+              I like to keep the process simple: understand the problem, build
+              with intention, then keep improving what I&apos;ve made.
             </p>
           </div>
 
-          {/* Journey timeline */}
-          <div className="relative mt-14">
-            {/* Vertical line */}
+          {/* Process */}
+          <div className="relative mt-16">
+            {/* Connecting line */}
             <div
               aria-hidden="true"
               className="
                 absolute
-                bottom-0
-                left-[5px]
-                top-0
-                w-px
+                left-0
+                right-0
+                top-[15px]
+                hidden
+                h-px
                 bg-[var(--line)]
-                sm:left-[7px]
+                md:block
               "
             />
 
-            <div className="space-y-10 sm:space-y-12">
-              {journeySteps.map((step, index) => (
+            <div className="grid gap-10 md:grid-cols-3 md:gap-8">
+              {steps.map((step, index) => (
                 <motion.article
                   key={step.number}
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{
                     duration: 0.7,
-                    delay: index * 0.08,
+                    delay: index * 0.12,
                     ease,
                   }}
-                  className="relative pl-8 sm:pl-12"
+                  className="relative"
                 >
-                  {/* Timeline point */}
-                  <span
-                    aria-hidden="true"
-                    className="
-                      absolute
-                      left-0
-                      top-1
-                      grid
-                      h-[11px]
-                      w-[11px]
-                      place-items-center
-                      rounded-full
-                      border
-                      border-[var(--accent)]
-                      bg-[var(--surface)]
-                    "
-                  >
-                    <span className="h-1 w-1 rounded-full bg-[var(--accent)]" />
-                  </span>
-
-                  {/* Step meta */}
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-[10px] text-[var(--accent-strong)]">
+                  {/* Step marker */}
+                  <div className="relative z-10 flex items-center gap-3">
+                    <span
+                      className="
+                        grid
+                        h-8
+                        w-8
+                        place-items-center
+                        rounded-full
+                        border
+                        border-[var(--line-strong)]
+                        bg-[var(--surface)]
+                        font-mono
+                        text-[9px]
+                        text-[var(--accent-strong)]
+                        transition-all
+                        duration-300
+                        group-hover:border-[var(--accent)]
+                      "
+                    >
                       {step.number}
                     </span>
 
-                    <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
-                      {step.label}
-                    </span>
+                    {index < steps.length - 1 && (
+                      <span
+                        aria-hidden="true"
+                        className="
+                          h-px
+                          flex-1
+                          bg-[var(--line)]
+                          md:hidden
+                        "
+                      />
+                    )}
                   </div>
 
                   {/* Content */}
-                  <div className="mt-3 max-w-2xl">
-                    <h3 className="text-xl font-medium tracking-[-0.025em] text-[var(--ink)]">
+                  <div className="mt-7 max-w-sm">
+                    <h3
+                      className="
+                        font-display
+                        text-[24px]
+                        font-medium
+                        tracking-[-0.04em]
+                        text-[var(--ink)]
+                      "
+                    >
                       {step.title}
                     </h3>
 
-                    <p className="mt-2 max-w-xl text-[14px] leading-7 text-[var(--ink-faint)]">
+                    <p className="mt-3 text-[14px] leading-7 text-[var(--ink-faint)]">
                       {step.description}
                     </p>
                   </div>
@@ -149,22 +152,16 @@ function Journey() {
             </div>
           </div>
 
-          {/* Closing statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.7, delay: 0.15, ease }}
-            className="mt-14 border-t border-[var(--line)] pt-5"
-          >
+          {/* Bottom statement */}
+          <div className="mt-14 border-t border-[var(--line)] pt-5">
             <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-              Learn → Build → Refine → Repeat
+              Learn → Build → Refine
             </p>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
   );
 }
 
-export default Journey;
+export default HowIWork;

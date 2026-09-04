@@ -36,9 +36,10 @@ function Currently() {
             </h2>
 
             <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[var(--ink-faint)]">
-              I&apos;m currently strengthening my frontend fundamentals,
-              building real-world applications, and looking for an opportunity
-              to grow within a professional development team.
+              I&apos;m currently focused on strengthening my frontend
+              engineering skills through real-world projects, improving the way
+              I think about architecture and product decisions, and preparing to
+              contribute within a professional development team.
             </p>
           </div>
 

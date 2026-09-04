@@ -6,9 +6,10 @@ import Hero from "./features/hero/Hero";
 import About from "./features/about/About";
 import Skills from "./features/skills/Skills";
 import Projects from "./features/projects/Projects";
-import Journey from "./features/journey/Journey";
+
 import Contact from "./features/contact/Contact";
 import Currently from "./features/currently/Currently";
+import HowIWork from "./features/journey/Journey";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <About />
       <Skills />
       <Projects />
-      <Journey />
+      <HowIWork />
       <Currently />
       <Contact />
     </MainLayout>
