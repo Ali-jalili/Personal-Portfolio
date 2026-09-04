@@ -1,0 +1,123 @@
+/** @format */
+
+import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
+
+const ease = [0.23, 1, 0.32, 1] as const;
+
+const proof = [
+  { value: "3", label: "real-world projects" },
+  { value: "React", label: "primary stack" },
+  { value: "TS", label: "type-safe development" },
+];
+
+const socials = [
+  {
+    href: "https://github.com/Ali-jalili",
+    label: "GitHub",
+    icon: "GH",
+  },
+  {
+    href: "https://www.linkedin.com/",
+    label: "LinkedIn",
+    icon: "in",
+  },
+  {
+    href: "mailto:your@email.com",
+    label: "Email",
+    icon: <Mail size={16} strokeWidth={1.5} />,
+  },
+];
+
+function HeroProof() {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.7,
+        delay: 0.7,
+        ease,
+      }}
+      className="
+        mt-9
+        flex
+        flex-wrap
+        items-center
+        gap-x-8
+        gap-y-4
+        border-t
+        border-[var(--line)]
+        pt-6
+      "
+    >
+      {/* Proof */}
+      {proof.map((item) => (
+        <span key={item.label} className="flex items-baseline gap-2">
+          <span className="data text-data-lg text-[var(--accent-strong)]">
+            {item.value}
+          </span>
+
+          <span className="text-small text-[var(--ink-faint)]">
+            {item.label}
+          </span>
+        </span>
+      ))}
+
+      {/* Divider */}
+      <span
+        aria-hidden="true"
+        className="
+          hidden
+          h-4
+          w-px
+          bg-[var(--line-strong)]
+          sm:block
+        "
+      />
+
+      {/* Social links */}
+      <ul className="flex items-center gap-2">
+        {socials.map((social) => {
+          const isExternal = !social.href.startsWith("mailto:");
+
+          return (
+            <li key={social.label}>
+              <a
+                href={social.href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                aria-label={social.label}
+                className="
+                  grid
+                  h-9
+                  w-9
+                  place-items-center
+                  rounded-[var(--r-sm)]
+                  border
+                  border-[var(--line)]
+                  text-[var(--ink-muted)]
+                  transition-all
+                  duration-200
+                  hover:-translate-y-0.5
+                  hover:border-[var(--accent)]
+                  hover:text-[var(--accent-strong)]
+                "
+              >
+                {typeof social.icon === "string" ? (
+                  <span className="font-mono text-xs font-medium">
+                    {social.icon}
+                  </span>
+                ) : (
+                  social.icon
+                )}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </motion.div>
+  );
+}
+
+export default HeroProof;
