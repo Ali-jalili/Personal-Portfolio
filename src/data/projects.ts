@@ -77,43 +77,4 @@ export const projects: Project[] = [
     image: nexusosImage,
     featured: false,
   },
-
-  {
-    id: "test-dashboard",
-    title: "Test Dashboard",
-    description:
-      "Temporary project data for testing the second page of the project navigation.",
-    features: [],
-    technologies: ["React", "TypeScript"],
-    githubUrl: "",
-    liveUrl: "",
-    image: devdeskImage,
-    featured: false,
-  },
-
-  {
-    id: "test-studio",
-    title: "Test Studio",
-    description:
-      "Temporary project data for checking animated transitions between project pages.",
-    features: [],
-    technologies: ["React", "Tailwind CSS"],
-    githubUrl: "",
-    liveUrl: "",
-    image: formflowImage,
-    featured: false,
-  },
-
-  {
-    id: "test-portal",
-    title: "Test Portal",
-    description:
-      "Temporary project data for verifying that each navigation step shows three projects.",
-    features: [],
-    technologies: ["React", "Supabase"],
-    githubUrl: "",
-    liveUrl: "",
-    image: nexusosImage,
-    featured: false,
-  },
 ];
