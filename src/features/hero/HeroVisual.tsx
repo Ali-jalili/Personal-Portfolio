@@ -14,7 +14,7 @@ function HeroVisual() {
         delay: 0.2,
         ease: [0.23, 1, 0.32, 1],
       }}
-      className="relative hidden h-[470px] items-center justify-center lg:flex"
+      className="relative hidden h-[400px] items-center justify-center lg:flex"
     >
       {/* Ambient glow */}
       <div

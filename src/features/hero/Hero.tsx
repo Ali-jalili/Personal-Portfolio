@@ -18,7 +18,6 @@ function Hero() {
       className="relative isolate overflow-hidden"
       style={{
         paddingTop: "clamp(5.5rem, 8vw, 7rem)",
-        paddingBottom: "clamp(5rem, 9vw, 8rem)",
       }}
     >
       {/* Hero ambient background */}
@@ -91,7 +90,7 @@ function Hero() {
           }}
           className="
             group
-            mt-14
+            mt-8
             inline-flex
             items-center
             gap-2
