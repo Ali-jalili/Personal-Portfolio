@@ -15,12 +15,12 @@ function HeroVisual() {
         ease: [0.23, 1, 0.32, 1],
       }}
       className="
-        relative
-        hidden
-        h-[400px]
-        items-center
-        justify-center
-        lg:flex
+       relative
+  hidden
+  h-[430px]
+  items-center
+  justify-center
+  lg:flex
       "
     >
       {/* Ambient glow */}

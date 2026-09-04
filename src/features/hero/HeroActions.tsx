@@ -1,7 +1,7 @@
 /** @format */
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 const ease = [0.23, 1, 0.32, 1] as const;
 
@@ -22,15 +22,15 @@ function HeroActions() {
         href="#projects"
         aria-label="View selected projects"
         className="
-    btn-primary
-    group
-    inline-flex
-    items-center
-    gap-2
-    transition-all
-    duration-300
-    hover:-translate-y-0.5
-  "
+          btn-primary
+          group
+          inline-flex
+          items-center
+          gap-2
+          transition-all
+          duration-300
+          hover:-translate-y-0.5
+        "
       >
         <span>View Projects</span>
 
@@ -39,42 +39,11 @@ function HeroActions() {
           strokeWidth={1.6}
           aria-hidden="true"
           className="
-      transition-transform
-      duration-300
-      group-hover:translate-x-0.5
-      group-hover:-translate-y-0.5
-    "
-        />
-      </a>
-
-      <a
-        href="#contact"
-        aria-label="Get in touch"
-        className="
-    btn-ghost
-    group
-    inline-flex
-    items-center
-    gap-2
-    transition-all
-    duration-300
-    hover:-translate-y-0.5
-  "
-      >
-        <span>Get in Touch</span>
-
-        <ArrowRight
-          size={15}
-          strokeWidth={1.5}
-          aria-hidden="true"
-          className="
-      opacity-0
-      -translate-x-1
-      transition-all
-      duration-300
-      group-hover:translate-x-0
-      group-hover:opacity-100
-    "
+            transition-transform
+            duration-300
+            group-hover:translate-x-0.5
+            group-hover:-translate-y-0.5
+          "
         />
       </a>
 
@@ -93,7 +62,7 @@ function HeroActions() {
           hover:-translate-y-0.5
         "
       >
-        <span>Let's talk</span>
+        <span>Get in Touch</span>
 
         <ArrowRight
           size={15}

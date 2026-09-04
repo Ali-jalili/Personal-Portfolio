@@ -27,12 +27,12 @@ const socials = [
     icon: "GH",
   },
   {
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/in/ali--jalili",
     label: "LinkedIn",
     icon: "in",
   },
   {
-    href: "mailto:your@email.com",
+    href: "mailto:ali.jalili.dev@gmail.com",
     label: "Email",
     icon: <ArrowUpRight size={15} strokeWidth={1.5} />,
   },

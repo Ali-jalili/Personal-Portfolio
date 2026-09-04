@@ -8,7 +8,7 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Work", href: "#projects" },
-  { label: "Journey", href: "#journey" },
+  { label: "How I Work", href: "#how-i-work" },
 ];
 
 const ease = [0.23, 1, 0.32, 1] as const;
