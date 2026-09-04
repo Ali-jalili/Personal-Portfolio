@@ -80,21 +80,56 @@ function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Links */}
-        <div className="mt-6 flex gap-4">
+        <div className="mt-6 flex items-center gap-5 border-t border-[var(--line)] pt-4">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="
-                text-sm
-                font-medium
-                text-[var(--ink)]
-                transition-colors
-                hover:text-[var(--accent-strong)]
-              "
+        group/link
+        relative
+        inline-flex
+        items-center
+        gap-1.5
+        font-mono
+        text-[11px]
+        font-medium
+        uppercase
+        tracking-[0.1em]
+        text-[var(--ink-muted)]
+        transition-colors
+        duration-300
+        hover:text-[var(--ink)]
+      "
             >
-              GitHub →
+              <span>GitHub</span>
+
+              <span
+                className="
+          inline-block
+          transition-transform
+          duration-300
+          group-hover/link:translate-x-0.5
+          group-hover/link:-translate-y-0.5
+        "
+              >
+                ↗
+              </span>
+
+              <span
+                className="
+          absolute
+          -bottom-1
+          left-0
+          h-px
+          w-0
+          bg-[var(--ink)]
+          transition-all
+          duration-300
+          group-hover/link:w-full
+        "
+              />
             </a>
           )}
 
@@ -104,14 +139,49 @@ function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="
-                text-sm
-                font-medium
-                text-[var(--accent-strong)]
-                transition-colors
-                hover:text-[var(--accent)]
-              "
+        group/link
+        relative
+        inline-flex
+        items-center
+        gap-1.5
+        font-mono
+        text-[11px]
+        font-medium
+        uppercase
+        tracking-[0.1em]
+        text-[var(--accent-strong)]
+        transition-colors
+        duration-300
+        hover:text-[var(--accent)]
+      "
             >
-              Live Demo →
+              <span>Live Demo</span>
+
+              <span
+                className="
+          inline-block
+          transition-transform
+          duration-300
+          group-hover/link:translate-x-0.5
+          group-hover/link:-translate-y-0.5
+        "
+              >
+                ↗
+              </span>
+
+              <span
+                className="
+          absolute
+          -bottom-1
+          left-0
+          h-px
+          w-0
+          bg-[var(--accent-strong)]
+          transition-all
+          duration-300
+          group-hover/link:w-full
+        "
+              />
             </a>
           )}
         </div>

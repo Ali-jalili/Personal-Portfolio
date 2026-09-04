@@ -10,6 +10,7 @@ import Projects from "./features/projects/Projects";
 import Contact from "./features/contact/Contact";
 import Currently from "./features/currently/Currently";
 import HowIWork from "./features/journey/Journey";
+import Resume from "./features/resume/Resume";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <About />
       <Skills />
       <Projects />
+      <Resume />
       <HowIWork />
       <Currently />
       <Contact />
