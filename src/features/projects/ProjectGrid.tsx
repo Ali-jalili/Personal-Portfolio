@@ -5,7 +5,9 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import type { Project } from "../../types/project";
+
 import ProjectCard from "./ProjectCard";
+import ProjectDetails from "./ProjectDetails";
 
 type ProjectGridProps = {
   projects: Project[];
@@ -17,6 +19,8 @@ function ProjectGrid({ projects }: ProjectGridProps) {
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
   const [projectsPerPage, setProjectsPerPage] = useState(3);
+
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const totalPages = Math.ceil(projects.length / projectsPerPage);
 
@@ -38,6 +42,7 @@ function ProjectGrid({ projects }: ProjectGridProps) {
     };
 
     updateProjectsPerPage();
+
     window.addEventListener("resize", updateProjectsPerPage);
 
     return () => window.removeEventListener("resize", updateProjectsPerPage);
@@ -58,153 +63,133 @@ function ProjectGrid({ projects }: ProjectGridProps) {
   };
 
   return (
-    <div className="mt-12 md:mt-14">
-      {/* Projects */}
-      <div className="relative pb-3">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={page}
-            initial={{ opacity: 0, x: direction * 25 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: direction * -25 }}
-            transition={{
-              duration: 0.45,
-              ease,
-            }}
+    <>
+      <div className="mt-12 md:mt-14">
+        {/* Projects */}
+        <div className="relative pb-3">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={page}
+              initial={{
+                opacity: 0,
+                x: direction * 25,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+              }}
+              exit={{
+                opacity: 0,
+                x: direction * -25,
+              }}
+              transition={{
+                duration: 0.45,
+                ease,
+              }}
+              className="
+                grid
+                grid-cols-1
+                gap-8
+                sm:grid-cols-2
+                md:grid-cols-3
+                md:gap-6
+              "
+            >
+              {visibleProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.08,
+                    ease,
+                  }}
+                >
+                  <ProjectCard
+                    project={project}
+                    onOpen={() => setSelectedProject(project)}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Navigation */}
+        <div className="mt-6 flex items-center justify-center gap-4">
+          <span
             className="
-              grid
-              grid-cols-1
-              gap-8
-              sm:grid-cols-2
-              md:grid-cols-3
-              md:gap-6
+              order-2
+              min-w-12
+              text-center
+              font-mono
+              text-[9px]
+              uppercase
+              tracking-[0.14em]
+              text-[var(--ink-faint)]
             "
           >
-            {visibleProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{
-                  opacity: 0,
-                  y: index === 1 ? 45 : 25,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: index === 1 ? 28 : 0,
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.08,
-                  ease,
-                }}
-              >
-                <ProjectCard project={project} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+            {String(page + 1).padStart(2, "0")} /{" "}
+            {String(totalPages).padStart(2, "0")}
+          </span>
 
-      {/* Navigation */}
-      <div className="mt-6 flex items-center justify-center gap-4">
-        <span
-          className="
-            order-2
-            min-w-12
-            text-center
-            font-mono
-            text-[9px]
-            uppercase
-            tracking-[0.14em]
-            text-[var(--ink-faint)]
-          "
-        >
-          {String(page + 1).padStart(2, "0")} /{" "}
-          {String(totalPages).padStart(2, "0")}
-        </span>
-
-        <div className="contents">
           <motion.button
             type="button"
             onClick={goPrevious}
             disabled={page === 0}
-            aria-label="Previous projects"
-            title="Previous projects"
-            whileHover={page > 0 ? { x: -2 } : undefined}
-            whileTap={page > 0 ? { scale: 0.92 } : undefined}
             className="
-        group
-        grid
-        h-10
-        w-10
-        place-items-center
-        rounded-full
-        border
-        border-[var(--line)]
-        bg-[var(--surface)]
-        text-[var(--ink-muted)]
-        shadow-[0_4px_14px_rgba(20,24,40,0.05)]
-        transition-all
-        duration-300
-        hover:border-[var(--accent-strong)]
-        hover:bg-[var(--accent-soft)]
-        hover:text-[var(--ink)]
-        hover:shadow-[0_8px_22px_rgba(20,24,40,0.08)]
-        disabled:cursor-not-allowed
-        disabled:opacity-30
-        disabled:hover:border-[var(--line)]
-        disabled:hover:bg-[var(--surface)]
-        disabled:hover:text-[var(--ink-muted)]
-      "
+              grid
+              h-10
+              w-10
+              place-items-center
+              rounded-full
+              border
+              border-[var(--line)]
+              bg-[var(--surface)]
+              text-[var(--ink-muted)]
+              transition-all
+              disabled:opacity-30
+            "
           >
-            <ArrowLeft
-              size={17}
-              strokeWidth={1.7}
-              className="transition-transform duration-300 group-hover:-translate-x-0.5"
-            />
+            <ArrowLeft size={17} />
           </motion.button>
 
           <motion.button
             type="button"
             onClick={goNext}
             disabled={page === totalPages - 1}
-            aria-label="Next projects"
-            title="Next projects"
-            whileHover={page < totalPages - 1 ? { x: 2 } : undefined}
-            whileTap={page < totalPages - 1 ? { scale: 0.92 } : undefined}
             className="
-        group
-        grid
-        h-10
-        w-10
-        place-items-center
-        rounded-full
-        border
-        border-[var(--line)]
-        bg-[var(--surface)]
-        text-[var(--ink-muted)]
-        shadow-[0_4px_14px_rgba(20,24,40,0.05)]
-        transition-all
-        duration-300
-        hover:border-[var(--accent-strong)]
-        hover:bg-[var(--accent-soft)]
-        hover:text-[var(--ink)]
-        hover:shadow-[0_8px_22px_rgba(20,24,40,0.08)]
-        disabled:cursor-not-allowed
-        disabled:opacity-30
-        disabled:hover:border-[var(--line)]
-        disabled:hover:bg-[var(--surface)]
-        disabled:hover:text-[var(--ink-muted)]
-      "
+              grid
+              h-10
+              w-10
+              place-items-center
+              rounded-full
+              border
+              border-[var(--line)]
+              bg-[var(--surface)]
+              text-[var(--ink-muted)]
+              transition-all
+              disabled:opacity-30
+            "
           >
-            <ArrowRight
-              size={17}
-              strokeWidth={1.7}
-              className="transition-transform duration-300 group-hover:translate-x-0.5"
-            />
+            <ArrowRight size={17} />
           </motion.button>
         </div>
       </div>
-    </div>
+
+      {/* Project Details Modal */}
+      <ProjectDetails
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
+    </>
   );
 }
 

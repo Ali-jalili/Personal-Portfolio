@@ -19,7 +19,7 @@ function Projects() {
         >
           <div className="flex items-center justify-between border-t border-[var(--line)] pt-7">
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
-              Selected Work
+              Projects
             </span>
 
             <span className="font-mono text-[10px] text-[var(--ink-faint)]">
@@ -37,8 +37,8 @@ function Projects() {
               </h2>
 
               <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-[var(--ink-faint)]">
-                A selection of products, experiments, and real-world
-                applications.
+                Real applications built while learning, exploring ideas, and
+                solving problems.
               </p>
             </div>
 
