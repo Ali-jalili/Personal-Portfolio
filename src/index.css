@@ -10,7 +10,6 @@
   /* ---------- Text ---------- */
 
   --ink: #101828;
-  --ink-muted: #667085;
   --ink-faint: #98a2b3;
 
   /* ---------- Lines ---------- */
@@ -367,8 +366,7 @@
 .char {
   display: inline-block;
   opacity: 1;
-  transform: translateY(0.35em);
-  animation: char-reveal 0.35s cubic-bezier(0.23, 1, 0.32, 1) both;
+  transform: translateY(0);
 }
 
 @keyframes char-reveal {
