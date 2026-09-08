@@ -88,8 +88,9 @@ function HeroIntro() {
       {/* Value proposition */}
       <p className="reveal-mask mt-6 block max-w-[58ch] text-lede text-[var(--ink-muted)]">
         <span style={{ animationDelay: "0.5s" }}>
-          I build practical web applications with a focus on thoughtful
-          interfaces, clean architecture, and reliable user experiences.
+          I build modern web applications by turning ideas into real products,
+          learning through hands-on projects, problem solving, and continuous
+          improvement.
         </span>
       </p>
     </div>

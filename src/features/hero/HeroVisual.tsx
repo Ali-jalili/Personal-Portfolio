@@ -15,12 +15,12 @@ function HeroVisual() {
         ease: [0.23, 1, 0.32, 1],
       }}
       className="
-       relative
-  hidden
-  h-[430px]
-  items-center
-  justify-center
-  lg:flex
+        relative
+        hidden
+        h-[430px]
+        items-center
+        justify-center
+        lg:flex
       "
     >
       {/* Ambient glow */}
@@ -74,7 +74,7 @@ function HeroVisual() {
           shadow-[0_30px_80px_rgba(20,24,40,0.09)]
         "
       >
-        {/* Grid */}
+        {/* Background */}
         <div
           aria-hidden="true"
           className="
@@ -82,33 +82,19 @@ function HeroVisual() {
             pointer-events-none
             absolute
             inset-0
-            opacity-50
+            opacity-40
           "
         />
 
-        {/* Decorative rings */}
+        {/* Decorative ring */}
         <div
           aria-hidden="true"
           className="
             absolute
-            right-[-90px]
-            top-[-90px]
-            h-[260px]
-            w-[260px]
-            rounded-full
-            border
-            border-[var(--accent)]/10
-          "
-        />
-
-        <div
-          aria-hidden="true"
-          className="
-            absolute
-            right-[-55px]
-            top-[-55px]
-            h-[190px]
-            w-[190px]
+            -right-24
+            -top-24
+            h-64
+            w-64
             rounded-full
             border
             border-[var(--accent)]/10
@@ -126,16 +112,22 @@ function HeroVisual() {
               text-[var(--ink-faint)]
             "
           >
-            Personal Portfolio
+            Ali Jalili
           </span>
 
-          <span className="font-mono text-[10px] text-[var(--ink-faint)]">
-            01 / 01
+          <span
+            className="
+              font-mono
+              text-[10px]
+              text-[var(--ink-faint)]
+            "
+          >
+            2026
           </span>
         </div>
 
-        {/* Identity */}
-        <div className="relative mt-16">
+        {/* Main message */}
+        <div className="relative mt-8">
           <span
             className="
               font-mono
@@ -145,106 +137,59 @@ function HeroVisual() {
               text-[var(--accent-strong)]
             "
           >
-            A.J
+            Personal Note
           </span>
 
           <h2 className="mt-5 tracking-[-0.055em]">
-            <span className="block text-5xl font-semibold text-[var(--ink)]">
-              Frontend
+            <span
+              className="
+                block
+                text-5xl
+                font-semibold
+                text-[var(--ink)]
+              "
+            >
+              Build
             </span>
 
-            <span className="serif-italic mt-1 block text-5xl text-[var(--ink)]">
-              Engineering
+            <span
+              className="
+                serif-italic
+                block
+                text-5xl
+                text-[var(--ink)]
+              "
+            >
+              with curiosity.
             </span>
           </h2>
-        </div>
 
-        {/* Center visual */}
-        <div className="absolute left-1/2 top-[57%] -translate-x-1/2 -translate-y-1/2">
-          <motion.div
-            animate={
-              reduceMotion
-                ? undefined
-                : {
-                    rotate: 360,
-                  }
-            }
-            transition={
-              reduceMotion
-                ? undefined
-                : {
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }
-            }
+          <p
             className="
-              relative
-              h-24
-              w-24
-              rounded-full
-              border
-              border-[var(--line-strong)]
+              mt-5
+              max-w-[260px]
+              text-sm
+              leading-6
+              text-[var(--ink-muted)]
             "
           >
-            <span
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                h-3
-                w-3
-                -translate-x-1/2
-                -translate-y-1/2
-                rounded-full
-                bg-[var(--accent)]
-                shadow-[0_0_24px_var(--accent-glow)]
-              "
-            />
-
-            <span
-              className="
-                absolute
-                inset-3
-                rounded-full
-                border
-                border-dashed
-                border-[var(--line)]
-              "
-            />
-          </motion.div>
+            I learn by building real products, questioning decisions, and
+            improving every iteration.
+          </p>
         </div>
 
-        {/* Bottom information */}
+        {/* Bottom mindset */}
         <div className="absolute bottom-7 left-7 right-7">
-          <div className="flex items-end justify-between">
-            <div>
-              <span
-                className="
-                  block
-                  font-mono
-                  text-[9px]
-                  uppercase
-                  tracking-[0.16em]
-                  text-[var(--ink-faint)]
-                "
-              >
-                Focus
-              </span>
+          <div className="h-px bg-[var(--line)]" />
 
-              <span className="mt-2 block text-sm font-medium text-[var(--ink)]">
-                Interfaces & Product Experience
-              </span>
-            </div>
-
-            <span className="font-mono text-[10px] text-[var(--ink-faint)]">
-              2026
-            </span>
-          </div>
-
-          <div className="mt-5 h-px bg-[var(--line)]" />
-
-          <div className="mt-3 flex items-center justify-between">
+          <div
+            className="
+              mt-5
+              flex
+              items-center
+              justify-between
+            "
+          >
             <span
               className="
                 font-mono
@@ -254,59 +199,22 @@ function HeroVisual() {
                 text-[var(--ink-faint)]
               "
             >
-              Practical web applications
+              Problem solving
             </span>
 
             <span
               className="
                 font-mono
                 text-[9px]
+                uppercase
+                tracking-[0.14em]
                 text-[var(--accent-strong)]
               "
             >
-              ● ACTIVE
+              Product thinking
             </span>
           </div>
         </div>
-      </motion.div>
-
-      {/* Current work */}
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.6,
-          delay: 0.8,
-        }}
-        className="
-          absolute
-          -bottom-1
-          -left-1
-          rounded-xl
-          border
-          border-[var(--line)]
-          bg-[var(--surface)]
-          px-4
-          py-3
-          shadow-[0_12px_30px_rgba(20,24,40,0.07)]
-        "
-      >
-        <span
-          className="
-            block
-            font-mono
-            text-[9px]
-            uppercase
-            tracking-[0.14em]
-            text-[var(--ink-faint)]
-          "
-        >
-          Currently building
-        </span>
-
-        <span className="mt-1 block text-sm font-medium text-[var(--ink)]">
-          DevDesk
-        </span>
       </motion.div>
     </motion.div>
   );

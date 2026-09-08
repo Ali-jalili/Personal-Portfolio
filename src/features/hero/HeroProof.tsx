@@ -8,15 +8,15 @@ const ease = [0.23, 1, 0.32, 1] as const;
 const proof = [
   {
     value: "03",
-    label: "Projects shipped",
+    label: "Projects built",
   },
   {
     value: "01",
-    label: "Developer workspace",
+    label: "Developer tool",
   },
   {
     value: "∞",
-    label: "Still building",
+    label: "Always learning",
   },
 ];
 
