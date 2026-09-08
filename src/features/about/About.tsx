@@ -20,11 +20,11 @@ function About() {
         >
           {/* Section header */}
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
+            <span className="font-mono text-[15px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
               About
             </span>
 
-            <span className="font-mono text-[10px] text-[var(--ink-faint)]">
+            <span className="font-mono text-[15px] text-[var(--ink-faint)]">
               01
             </span>
           </div>
@@ -62,7 +62,7 @@ function About() {
 
           {/* Bottom meta */}
           <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-[var(--line)] pt-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
               Based in Iran
             </span>
 
@@ -71,7 +71,7 @@ function About() {
               className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
             />
 
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
               Learning through projects
             </span>
 
@@ -80,7 +80,7 @@ function About() {
               className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
             />
 
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--accent-strong)]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--accent-strong)]">
               Open to frontend roles
             </span>
           </div>

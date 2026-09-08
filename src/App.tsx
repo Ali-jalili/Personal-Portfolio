@@ -19,9 +19,9 @@ function App() {
       <About />
       <Skills />
       <Projects />
-      <Resume />
       <HowIWork />
       <Currently />
+      <Resume />
       <Contact />
     </MainLayout>
   );

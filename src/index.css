@@ -81,21 +81,37 @@
    ========================================================= */
 
 [data-theme="dark"] {
-  --bg: #0f172a;
-  --surface: #151f32;
-  --surface-soft: #1b2639;
+  --bg: #0b0c10;
 
-  --ink: #f8fafc;
-  --ink-muted: #a7b0c0;
-  --ink-faint: #687386;
+  --surface: #111318;
+
+  --surface-soft: #171a21;
+
+
+  --ink: #f4f4f5;
+
+  --ink-muted: #a1a1aa;
+
+  --ink-faint: #71717a;
+
 
   --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.14);
 
-  --accent: #6c6cff;
-  --accent-strong: #8585ff;
-  --accent-soft: rgba(108, 108, 255, 0.1);
-  --accent-glow: rgba(108, 108, 255, 0.2);
+  --line-strong: rgba(255, 255, 255, 0.15);
+
+
+  --accent: #8b8cff;
+
+  --accent-strong: #a5a6ff;
+
+  --accent-soft: rgba(139, 140, 255, 0.12);
+
+  --accent-glow: rgba(139, 140, 255, 0.22);
+
+
+  --ok: #34d399;
+
+  --warning: #fbbf24;
 }
 
 /* =========================================================

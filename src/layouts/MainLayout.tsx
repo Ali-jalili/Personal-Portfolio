@@ -1,7 +1,7 @@
 /** @format */
 
 import type { ReactNode } from "react";
-import Footer from "../components/common/Footer";
+import Footer from "../components/Footer";
 import Navbar from "./Navbar";
 
 type MainLayoutProps = {

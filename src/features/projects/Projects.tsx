@@ -18,11 +18,11 @@ function Projects() {
           transition={{ duration: 0.85, ease }}
         >
           <div className="flex items-center justify-between border-t border-[var(--line)] pt-7">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
+            <span className="font-mono text-[15px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
               Projects
             </span>
 
-            <span className="font-mono text-[10px] text-[var(--ink-faint)]">
+            <span className="font-mono text-[15px] text-[var(--ink-faint)]">
               03
             </span>
           </div>

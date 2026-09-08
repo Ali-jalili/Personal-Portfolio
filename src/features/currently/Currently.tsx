@@ -20,7 +20,7 @@ function Currently() {
             <span
               className="
                 font-mono
-                text-[10px]
+                text-[15px]
                 uppercase
                 tracking-[0.18em]
                 text-[var(--ink-faint)]
@@ -32,7 +32,7 @@ function Currently() {
             <span
               className="
                 font-mono
-                text-[10px]
+                text-[15px]
                 text-[var(--ink-faint)]
               "
             >
@@ -96,7 +96,7 @@ function Currently() {
                 <span
                   className="
                     font-mono
-                    text-[9px]
+                    text-[11px]
                     uppercase
                     tracking-[0.15em]
                     text-[var(--ink-faint)]
@@ -121,7 +121,7 @@ function Currently() {
                 <span
                   className="
                     font-mono
-                    text-[9px]
+                    text-[11px]
                     uppercase
                     tracking-[0.15em]
                     text-[var(--ink-faint)]
@@ -146,7 +146,7 @@ function Currently() {
                 <span
                   className="
                     font-mono
-                    text-[9px]
+                    text-[11px]
                     uppercase
                     tracking-[0.15em]
                     text-[var(--ink-faint)]

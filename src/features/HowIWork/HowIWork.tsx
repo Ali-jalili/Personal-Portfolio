@@ -40,7 +40,7 @@ function HowIWork() {
             <span
               className="
                 font-mono
-                text-[10px]
+                text-[15px]
                 uppercase
                 tracking-[0.18em]
                 text-[var(--ink-faint)]
@@ -52,7 +52,7 @@ function HowIWork() {
             <span
               className="
                 font-mono
-                text-[10px]
+                text-[15px]
                 text-[var(--ink-faint)]
               "
             >
@@ -233,7 +233,7 @@ function HowIWork() {
             <p
               className="
                 font-mono
-                text-[10px]
+                text-[11px]
                 uppercase
                 tracking-[0.14em]
                 text-[var(--ink-faint)]

@@ -6,6 +6,8 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { Menu, X } from "lucide-react";
 
+import ThemeToggle from "../components/ThemeToggle";
+
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
@@ -48,6 +50,7 @@ function Navbar() {
           "
         >
           {/* Brand */}
+
           <a
             href="#hero"
             onClick={closeMenu}
@@ -67,6 +70,7 @@ function Navbar() {
           </a>
 
           {/* Desktop Navigation */}
+
           <div className="hidden items-center gap-7 md:flex">
             {navItems.map((item) => (
               <a
@@ -88,34 +92,38 @@ function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <a
-            href="#contact"
-            className="
-              hidden
-              rounded-full
-              border
-              border-[var(--line-strong)]
-              bg-[var(--surface-soft)]
-              px-4
-              py-2
-              font-sans
-              text-[14px]
-              font-medium
-              text-[var(--ink)]
-              transition-all
-              duration-300
-              hover:-translate-y-0.5
-              hover:border-[var(--accent)]
-              hover:bg-[var(--accent-soft)]
-              hover:text-[var(--accent-strong)]
-              md:inline-flex
-            "
-          >
-            Contact
-          </a>
+          {/* Desktop Actions */}
+
+          <div className="hidden items-center gap-3 md:flex">
+            <ThemeToggle />
+
+            <a
+              href="#contact"
+              className="
+                rounded-full
+                border
+                border-[var(--line-strong)]
+                bg-[var(--surface-soft)]
+                px-4
+                py-2
+                font-sans
+                text-[14px]
+                font-medium
+                text-[var(--ink)]
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                hover:border-[var(--accent)]
+                hover:bg-[var(--accent-soft)]
+                hover:text-[var(--accent-strong)]
+              "
+            >
+              Let's Talk
+            </a>
+          </div>
 
           {/* Mobile Menu Button */}
+
           <button
             type="button"
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -145,6 +153,7 @@ function Navbar() {
           </button>
 
           {/* Mobile Menu */}
+
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -207,10 +216,37 @@ function Navbar() {
 
                   <div className="my-2 h-px bg-[var(--line)]" />
 
+                  {/* Mobile Theme */}
+
+                  <div
+                    className="
+                      flex
+                      items-center
+                      justify-between
+                      rounded-xl
+                      px-4
+                      py-3
+                    "
+                  >
+                    <span
+                      className="
+                        font-sans
+                        text-sm
+                        font-medium
+                        text-[var(--ink-muted)]
+                      "
+                    >
+                      Theme
+                    </span>
+
+                    <ThemeToggle />
+                  </div>
+
                   <a
                     href="#contact"
                     onClick={closeMenu}
                     className="
+                      mt-2
                       rounded-xl
                       bg-[var(--accent-soft)]
                       px-4
@@ -224,7 +260,7 @@ function Navbar() {
                       hover:text-white
                     "
                   >
-                    Contact
+                    Let's Talk
                   </a>
                 </div>
               </motion.div>

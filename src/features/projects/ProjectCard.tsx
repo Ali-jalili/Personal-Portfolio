@@ -101,7 +101,7 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
           <span
             className="
               font-mono
-              text-[9px]
+              text-[11px]
               uppercase
               tracking-[0.14em]
               text-[var(--ink-faint)]
@@ -128,7 +128,7 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
                     px-3
                     py-1
                     font-mono
-                    text-[9px]
+                    text-[10px]
                     uppercase
                     tracking-[0.05em]
                     text-[var(--ink-faint)]
@@ -166,7 +166,7 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
               px-4
               py-2
               font-mono
-              text-[10px]
+              text-[11px]
               font-medium
               uppercase
               tracking-[0.1em]

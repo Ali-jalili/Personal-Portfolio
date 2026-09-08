@@ -18,11 +18,11 @@ function Skills() {
         >
           {/* Header */}
           <div className="flex items-center justify-between border-t border-[var(--line)] pt-7">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
+            <span className="font-mono text-[15px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
               Skills
             </span>
 
-            <span className="font-mono text-[10px] text-[var(--ink-faint)]">
+            <span className="font-mono text-[15px] text-[var(--ink-faint)]">
               02
             </span>
           </div>
@@ -46,11 +46,11 @@ function Skills() {
 
           {/* Bottom Meta */}
           <div className="mt-8 flex items-center justify-between border-t border-[var(--line)] pt-5">
-            <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
               Frontend · Data · Tools
             </span>
 
-            <span className="hidden font-mono text-[9px] text-[var(--ink-faint)] sm:block">
+            <span className="hidden font-mono text-[11px] text-[var(--ink-faint)] sm:block">
               08 technologies
             </span>
           </div>

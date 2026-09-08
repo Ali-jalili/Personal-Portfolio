@@ -21,11 +21,11 @@ function Resume() {
         >
           {/* Header */}
           <div className="flex items-center justify-between border-t border-[var(--line)] pt-6">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
+            <span className="font-mono text-[15px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
               Resume
             </span>
 
-            <span className="font-mono text-[10px] text-[var(--ink-faint)]">
+            <span className="font-mono text-[15px] text-[var(--ink-faint)]">
               04
             </span>
           </div>
@@ -238,7 +238,7 @@ function Resume() {
                 md:px-9
               "
             >
-              <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
                 Real-world Projects
               </span>
 
@@ -247,7 +247,7 @@ function Resume() {
                 className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
               />
 
-              <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
                 Product-focused Development
               </span>
 
@@ -256,7 +256,7 @@ function Resume() {
                 className="hidden h-3 w-px bg-[var(--line-strong)] sm:block"
               />
 
-              <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--accent-strong)]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--accent-strong)]">
                 Open to opportunities
               </span>
             </div>

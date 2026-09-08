@@ -33,7 +33,7 @@ function Contact() {
             <span
               className="
                 font-mono
-                text-[10px]
+                text-[15px]
                 uppercase
                 tracking-[0.18em]
                 text-[var(--ink-faint)]
@@ -45,7 +45,7 @@ function Contact() {
             <span
               className="
                 font-mono
-                text-[10px]
+                text-[15px]
                 text-[var(--ink-faint)]
               "
             >
@@ -153,7 +153,7 @@ function Contact() {
             <span
               className="
                 font-mono
-                text-[10px]
+                text-[11px]
                 uppercase
                 tracking-[0.16em]
                 text-[var(--ink-faint)]
@@ -179,7 +179,7 @@ function Contact() {
                 items-center
                 gap-2
                 font-mono
-                text-[10px]
+                text-[11px]
                 uppercase
                 tracking-[0.16em]
                 text-[var(--accent-strong)]
@@ -217,7 +217,7 @@ function Contact() {
             <span
               className="
                 font-mono
-                text-[10px]
+                text-[11px]
                 uppercase
                 tracking-[0.16em]
                 text-[var(--ink-faint)]

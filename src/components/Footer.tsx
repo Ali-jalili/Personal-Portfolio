@@ -19,7 +19,7 @@ function Footer() {
         <p
           className="
             font-mono
-            text-[9px]
+            text-[11px]
             uppercase
             tracking-[0.14em]
             text-[var(--ink-faint)]
@@ -31,7 +31,7 @@ function Footer() {
         <p
           className="
             font-mono
-            text-[9px]
+            text-[11px]
             uppercase
             tracking-[0.14em]
             text-[var(--ink-faint)]
