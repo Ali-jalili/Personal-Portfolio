@@ -1,6 +1,7 @@
 /** @format */
 
 import { motion } from "framer-motion";
+
 import { ArrowDownToLine, ArrowUpRight, FileText } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -29,39 +30,64 @@ function Resume() {
             </span>
           </div>
 
-          {/* Resume CTA */}
+          {/* Resume Card */}
           <div className="relative mt-7 overflow-hidden border border-[var(--line)]">
-            {/* Decorative accent */}
+            {/* Decoration */}
             <div
               aria-hidden="true"
               className="
-                pointer-events-none absolute
-                -right-16 -top-16
-                h-44 w-44
+                pointer-events-none
+                absolute
+                -right-16
+                -top-16
+                h-44
+                w-44
                 rounded-full
-                border border-[var(--line)]
+                border
+                border-[var(--line)]
               "
             />
 
             <div
               aria-hidden="true"
               className="
-                pointer-events-none absolute
-                -right-7 -top-7
-                h-28 w-28
+                pointer-events-none
+                absolute
+                -right-7
+                -top-7
+                h-28
+                w-28
                 rounded-full
-                border border-[var(--line)]
+                border
+                border-[var(--line)]
               "
             />
 
-            <div className="relative grid gap-8 p-6 sm:p-8 md:grid-cols-[1fr_220px] md:items-center md:p-9">
+            <div
+              className="
+                relative
+                grid
+                gap-8
+                p-6
+                sm:p-8
+                md:grid-cols-[1fr_220px]
+                md:items-center
+                md:p-9
+              "
+            >
               {/* Copy */}
               <div className="max-w-2xl">
                 <div className="mb-5 flex items-center gap-3">
                   <div
                     className="
-                      flex h-9 w-9 shrink-0 items-center justify-center
-                      border border-[var(--line)]
+                      flex
+                      h-9
+                      w-9
+                      shrink-0
+                      items-center
+                      justify-center
+                      border
+                      border-[var(--line)]
                       bg-[var(--surface)]
                     "
                   >
@@ -78,33 +104,47 @@ function Resume() {
                 </div>
 
                 <h2 className="text-heading text-[var(--ink)]">
-                  Want the{" "}
+                  A detailed look at my{" "}
                   <span className="serif-italic text-[var(--accent-strong)]">
-                    full picture?
+                    frontend journey.
                   </span>
                 </h2>
 
-                <p className="mt-4 max-w-xl text-[14px] leading-7 text-[var(--ink-muted)]">
-                  A concise overview of my skills, projects, and frontend
-                  development journey
+                <p
+                  className="
+                    mt-4
+                    max-w-xl
+                    text-[14px]
+                    leading-7
+                    text-[var(--ink-muted)]
+                  "
+                >
+                  A summary of my projects, technical skills, and experience
+                  building modern web applications.
                 </p>
               </div>
 
               {/* Actions */}
               <div className="relative flex flex-col gap-3">
-                {/* Primary */}
                 <a
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
-                    group relative flex min-h-12 items-center justify-between
+                    group
+                    relative
+                    flex
+                    min-h-12
+                    items-center
+                    justify-between
                     overflow-hidden
-                    border border-[var(--ink)]
+                    border
+                    border-[var(--ink)]
                     bg-[var(--ink)]
                     px-4
                     text-[var(--surface)]
-                    transition-all duration-300
+                    transition-all
+                    duration-300
                     hover:-translate-y-0.5
                   "
                 >
@@ -114,9 +154,17 @@ function Resume() {
 
                   <span
                     className="
-                      relative z-10 flex h-7 w-7 items-center justify-center
-                      border border-white/20
-                      transition-transform duration-300
+                      relative
+                      z-10
+                      flex
+                      h-7
+                      w-7
+                      items-center
+                      justify-center
+                      border
+                      border-white/20
+                      transition-transform
+                      duration-300
                       group-hover:translate-x-0.5
                       group-hover:-translate-y-0.5
                     "
@@ -127,25 +175,32 @@ function Resume() {
                   <span
                     aria-hidden="true"
                     className="
-                      absolute inset-0
+                      absolute
+                      inset-0
                       translate-y-full
                       bg-[var(--accent-strong)]
-                      transition-transform duration-300
+                      transition-transform
+                      duration-300
                       group-hover:translate-y-0
                     "
                   />
                 </a>
 
-                {/* Secondary */}
                 <a
                   href="/resume.pdf"
                   download
                   className="
-                    group flex min-h-10 items-center justify-between
-                    border border-[var(--line)]
+                    group
+                    flex
+                    min-h-10
+                    items-center
+                    justify-between
+                    border
+                    border-[var(--line)]
                     px-4
                     text-[var(--ink-muted)]
-                    transition-all duration-300
+                    transition-all
+                    duration-300
                     hover:border-[var(--line-strong)]
                     hover:text-[var(--ink)]
                   "
@@ -158,7 +213,8 @@ function Resume() {
                     size={13}
                     strokeWidth={1.7}
                     className="
-                      transition-transform duration-300
+                      transition-transform
+                      duration-300
                       group-hover:translate-y-0.5
                     "
                   />
@@ -166,10 +222,24 @@ function Resume() {
               </div>
             </div>
 
-            {/* Bottom info */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[var(--line)] px-6 py-4 sm:px-8 md:px-9">
+            {/* Bottom Info */}
+            <div
+              className="
+                flex
+                flex-wrap
+                items-center
+                gap-x-6
+                gap-y-2
+                border-t
+                border-[var(--line)]
+                px-6
+                py-4
+                sm:px-8
+                md:px-9
+              "
+            >
               <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-                Frontend Developer
+                Real-world Projects
               </span>
 
               <span
@@ -178,7 +248,7 @@ function Resume() {
               />
 
               <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-                React · TypeScript
+                Product-focused Development
               </span>
 
               <span

@@ -7,21 +7,21 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const steps = [
   {
     number: "01",
-    title: "Understand",
+    title: "Explore",
     description:
-      "Start with the problem, the user, and what the product actually needs.",
+      "Break down the problem, understand the requirements, and find the right technical direction before writing code.",
   },
   {
     number: "02",
     title: "Build",
     description:
-      "Turn the idea into a clear interface with structure that stays easy to work with.",
+      "Create solutions with clean structure, reusable components, and maintainable code that can grow over time.",
   },
   {
     number: "03",
-    title: "Refine",
+    title: "Improve",
     description:
-      "Test, revisit decisions, and improve the result instead of stopping at the first working version.",
+      "Review decisions, fix weaknesses, and improve the product through iteration and real feedback.",
   },
 ];
 
@@ -37,34 +37,73 @@ function HowIWork() {
         >
           {/* Header */}
           <div className="flex items-center justify-between border-t border-[var(--line)] pt-7">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
-              How I Work
+            <span
+              className="
+                font-mono
+                text-[10px]
+                uppercase
+                tracking-[0.18em]
+                text-[var(--ink-faint)]
+              "
+            >
+              Engineering Process
             </span>
 
-            <span className="font-mono text-[10px] text-[var(--ink-faint)]">
+            <span
+              className="
+                font-mono
+                text-[10px]
+                text-[var(--ink-faint)]
+              "
+            >
               05
             </span>
           </div>
 
           {/* Intro */}
-          <div className="mt-12 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <h2 className="text-heading text-[var(--ink)]">
-              From idea to{" "}
-              <span className="serif-italic text-[var(--accent-strong)]">
-                better
-              </span>{" "}
-              product.
+          <div
+            className="
+              mt-12
+              grid
+              gap-8
+              lg:grid-cols-[0.8fr_1.2fr]
+              lg:items-end
+            "
+          >
+            <h2
+              className="
+                text-heading
+                text-[var(--ink)]
+              "
+            >
+              Building through{" "}
+              <span
+                className="
+                  serif-italic
+                  text-[var(--accent-strong)]
+                "
+              >
+                problem solving.
+              </span>
             </h2>
 
-            <p className="max-w-xl text-[15px] leading-7 text-[var(--ink-muted)] lg:justify-self-end">
-              I like to keep the process simple: understand the problem, build
-              with intention, then keep improving what I&apos;ve made.
+            <p
+              className="
+                max-w-xl
+                text-[15px]
+                leading-7
+                text-[var(--ink-muted)]
+                lg:justify-self-end
+              "
+            >
+              I focus on understanding the problem first, building with
+              intention, and improving the result through continuous iteration.
             </p>
           </div>
 
           {/* Process */}
           <div className="relative mt-16">
-            {/* Desktop connecting line */}
+            {/* Desktop Line */}
             <div
               aria-hidden="true"
               className="
@@ -80,13 +119,29 @@ function HowIWork() {
               "
             />
 
-            <div className="grid gap-10 md:grid-cols-3 md:gap-8">
+            <div
+              className="
+                grid
+                gap-10
+                md:grid-cols-3
+                md:gap-8
+              "
+            >
               {steps.map((step, index) => (
                 <motion.article
                   key={step.number}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.35 }}
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.35,
+                  }}
                   transition={{
                     duration: 0.7,
                     delay: index * 0.12,
@@ -94,8 +149,16 @@ function HowIWork() {
                   }}
                   className="group relative min-w-0"
                 >
-                  {/* Step marker */}
-                  <div className="relative z-10 flex items-center gap-3">
+                  {/* Marker */}
+                  <div
+                    className="
+                      relative
+                      z-10
+                      flex
+                      items-center
+                      gap-3
+                    "
+                  >
                     <span
                       className="
                         grid
@@ -119,7 +182,6 @@ function HowIWork() {
                       {step.number}
                     </span>
 
-                    {/* Mobile connector */}
                     {index < steps.length - 1 && (
                       <span
                         aria-hidden="true"
@@ -150,7 +212,14 @@ function HowIWork() {
                       {step.title}
                     </h3>
 
-                    <p className="mt-3 text-[14px] leading-7 text-[var(--ink-faint)]">
+                    <p
+                      className="
+                        mt-3
+                        text-[14px]
+                        leading-7
+                        text-[var(--ink-faint)]
+                      "
+                    >
                       {step.description}
                     </p>
                   </div>
@@ -159,10 +228,18 @@ function HowIWork() {
             </div>
           </div>
 
-          {/* Bottom statement */}
+          {/* Bottom */}
           <div className="mt-14 border-t border-[var(--line)] pt-5">
-            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-              Learn → Build → Refine
+            <p
+              className="
+                font-mono
+                text-[10px]
+                uppercase
+                tracking-[0.14em]
+                text-[var(--ink-faint)]
+              "
+            >
+              Explore → Build → Improve
             </p>
           </div>
         </motion.div>
