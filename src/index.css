@@ -158,11 +158,14 @@
    LAYOUT
    ========================================================= */
 
-@layer components {
+@layer utilities {
   .container {
     width: min(calc(100% - 2 * var(--gutter)), var(--container));
     margin-inline: auto;
   }
+}
+
+@layer components {
 
   .section {
     position: relative;
@@ -269,6 +272,42 @@
 
 .hero-shader-layer {
   pointer-events: none;
+}
+
+.project-modal-backdrop {
+  align-items: flex-end;
+  padding: max(0.75rem, env(safe-area-inset-top))
+    max(0.75rem, env(safe-area-inset-right))
+    max(0.75rem, env(safe-area-inset-bottom))
+    max(0.75rem, env(safe-area-inset-left));
+}
+
+.project-modal {
+  width: min(100%, 56rem);
+  max-height: calc(100dvh - 1.5rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--r-md);
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .project-modal {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .project-modal-backdrop {
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .project-modal {
+    max-height: 90vh;
+    border-radius: var(--r-lg);
+    padding: 2.5rem;
+  }
 }
 
 @media (max-width: 767px) {

@@ -56,6 +56,7 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
             md:items-center
             md:p-4
             md:backdrop-blur-sm
+            project-modal-backdrop
           "
         >
           <motion.div
@@ -84,22 +85,14 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
             aria-labelledby="project-details-title"
             className="
               relative
-              max-h-[calc(100dvh-1.5rem)]
               w-full
-              overflow-y-auto
-              overscroll-contain
-              rounded-2xl
               border
               border-[var(--line)]
               bg-[var(--surface)]
               text-left
-              p-4
               shadow-[0_30px_80px_rgba(0,0,0,0.12)]
-              sm:p-6
               md:max-w-4xl
-              md:max-h-[90vh]
-              md:rounded-3xl
-              md:p-10
+              project-modal
             "
           >
             {/* Close */}
