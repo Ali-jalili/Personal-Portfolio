@@ -34,18 +34,57 @@ function CenterCore() {
         sm:w-40
       "
     >
-      <div className="relative mb-3 grid h-11 w-11 place-items-center rounded-xl bg-[var(--ink)] text-[var(--bg)]">
+      <div
+        className="
+        relative
+        mb-3
+        grid
+        h-11
+        w-11
+        place-items-center
+        rounded-xl
+        bg-[var(--ink)]
+        text-[var(--bg)]
+      "
+      >
         <Code2 size={21} strokeWidth={1.7} />
 
-        <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-[var(--accent)]" />
+        <span
+          className="
+          absolute
+          -right-1
+          -top-1
+          h-2
+          w-2
+          rounded-full
+          bg-[var(--accent)]
+        "
+        />
       </div>
 
-      <span className="font-display text-lg font-medium tracking-[-0.025em] text-[var(--ink)]">
-        Frontend
+      <span
+        className="
+        font-display
+        text-lg
+        font-medium
+        tracking-[-0.025em]
+        text-[var(--ink)]
+      "
+      >
+        Building
       </span>
 
-      <span className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
-        Core Stack
+      <span
+        className="
+        mt-1
+        font-mono
+        text-[8px]
+        uppercase
+        tracking-[0.16em]
+        text-[var(--ink-faint)]
+      "
+      >
+        Product Stack
       </span>
     </motion.div>
   );

@@ -42,24 +42,21 @@ function About() {
           {/* Story */}
           <div className="mt-8 max-w-3xl">
             <p className="text-lede text-[var(--ink-muted)]">
-              I focus on turning ideas into practical, usable products. My
-              learning path has been driven by building real applications rather
-              than simply following tutorials.
+              My journey into frontend development has been shaped by building
+              real projects, solving problems, and learning from every challenge
+              along the way.
             </p>
 
             <p className="mt-5 text-base leading-8 text-[var(--ink-muted)]">
-              Through each project, I&apos;ve worked through challenges around
-              application structure, data, authentication, reusable interfaces,
-              and the decisions that make a product easier to understand and
-              maintain.
+              I started by learning through tutorials, but gradually realized
+              that real growth comes from creating things myself, making
+              decisions, and understanding why things work.
             </p>
 
             <p className="mt-5 text-base leading-8 text-[var(--ink-muted)]">
-              I enjoy understanding how things work beneath the surface, solving
-              problems thoughtfully, and improving what I build through
-              iteration. I&apos;m now looking to bring that hands-on mindset
-              into a professional team and keep growing through real
-              collaboration.
+              Today, I focus on building practical products, improving my
+              engineering mindset, and becoming a better developer through
+              continuous iteration and collaboration.
             </p>
           </div>
 
@@ -75,7 +72,7 @@ function About() {
             />
 
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
-              Learning by building
+              Learning through projects
             </span>
 
             <span
@@ -84,7 +81,7 @@ function About() {
             />
 
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--accent-strong)]">
-              Open to opportunities
+              Open to frontend roles
             </span>
           </div>
         </motion.div>

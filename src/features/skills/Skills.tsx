@@ -30,15 +30,14 @@ function Skills() {
           {/* Intro */}
           <div className="mt-10 max-w-2xl">
             <h2 className="text-heading text-[var(--ink)]">
-              The tools behind the{" "}
+              The tools I{" "}
               <span className="serif-italic text-[var(--accent-strong)]">
-                work.
+                build with.
               </span>
             </h2>
 
             <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-[var(--ink-muted)]">
-              A focused stack for building modern interfaces, working with
-              structured data, and shipping reliable web applications.
+              The stack I use to turn ideas into working products.
             </p>
           </div>
 
@@ -48,7 +47,7 @@ function Skills() {
           {/* Bottom Meta */}
           <div className="mt-8 flex items-center justify-between border-t border-[var(--line)] pt-5">
             <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-              Core · Data · UI · Development
+              Frontend · Data · Tools
             </span>
 
             <span className="hidden font-mono text-[9px] text-[var(--ink-faint)] sm:block">
