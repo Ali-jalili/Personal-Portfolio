@@ -2,12 +2,13 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 
 import type { Project } from "../../types/project";
 
 import ProjectCard from "./ProjectCard";
-import ProjectDetails from "./ProjectDetails";
+
+const ProjectDetails = lazy(() => import("./ProjectDetails"));
 
 type ProjectGridProps = {
   projects: Project[];
@@ -185,10 +186,14 @@ function ProjectGrid({ projects }: ProjectGridProps) {
       </div>
 
       {/* Project Details Modal */}
-      <ProjectDetails
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      {selectedProject && (
+        <Suspense fallback={null}>
+          <ProjectDetails
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        </Suspense>
+      )}
     </>
   );
 }

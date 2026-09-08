@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap");
-
-
 :root {
   /* ---------- Background ---------- */
 
@@ -181,6 +178,11 @@
     padding-top: var(--section-y-hero);
     padding-bottom: var(--section-y);
   }
+
+  main > section:not(#hero) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 700px;
+  }
 }
 
 /* =========================================================
@@ -262,6 +264,16 @@
 
 .hero-shader-layer {
   pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .ambient-glow {
+    filter: blur(48px);
+  }
+
+  .hero-shader-layer {
+    display: none;
+  }
 }
 
 /* =========================================================
@@ -354,14 +366,13 @@
 
 .char {
   display: inline-block;
-  opacity: 0;
+  opacity: 1;
   transform: translateY(0.35em);
-  animation: char-reveal 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: char-reveal 0.35s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 @keyframes char-reveal {
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }

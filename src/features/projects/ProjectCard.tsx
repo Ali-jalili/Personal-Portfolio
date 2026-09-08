@@ -35,6 +35,7 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
           <img
             src={project.image}
             alt={`${project.title} project preview`}
+            loading="lazy"
             className="
               h-full
               w-full

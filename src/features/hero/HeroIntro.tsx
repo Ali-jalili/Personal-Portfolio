@@ -78,7 +78,7 @@ function HeroIntro() {
 
           <span
             className="char serif-italic text-[var(--accent-strong)]"
-            style={{ animationDelay: "0.56s" }}
+            style={{ animationDelay: "0.12s" }}
           >
             .
           </span>

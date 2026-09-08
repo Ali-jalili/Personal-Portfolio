@@ -38,7 +38,8 @@ function SkillMap() {
             -translate-y-1/2
             rounded-full
             opacity-25
-            blur-[90px]
+            blur-[48px]
+            md:blur-[90px]
           "
           style={{
             background:
@@ -70,7 +71,8 @@ function SkillMap() {
               -translate-y-1/2
               rounded-full
               opacity-25
-              blur-[70px]
+              blur-[40px]
+              md:blur-[70px]
             "
             style={{
               background:

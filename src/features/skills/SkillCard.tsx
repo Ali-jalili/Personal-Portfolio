@@ -50,7 +50,8 @@ function SkillCard({ skill, index, mobile = false }: SkillCardProps) {
           px-3.5
           py-3
           shadow-[0_12px_35px_rgba(20,24,40,0.06)]
-          backdrop-blur-md
+          backdrop-blur-none
+          md:backdrop-blur-md
           sm:px-4
         "
       >

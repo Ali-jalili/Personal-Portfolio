@@ -35,7 +35,8 @@ function Hero() {
             -translate-x-1/2
             rounded-full
             opacity-50
-            blur-[110px]
+            blur-[48px]
+            md:blur-[110px]
           "
           style={{
             background:

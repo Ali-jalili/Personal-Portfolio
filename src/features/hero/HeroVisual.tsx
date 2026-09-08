@@ -33,7 +33,8 @@ function HeroVisual() {
           w-[360px]
           rounded-full
           opacity-30
-          blur-[100px]
+          blur-[48px]
+          md:blur-[100px]
         "
         style={{
           background:
