@@ -12,14 +12,17 @@ function Footer() {
           flex-col
           items-center
           justify-between
-          gap-2
+          gap-3
+          px-1
           sm:flex-row
+          sm:gap-6
         "
       >
         <p
           className="
             font-mono
             text-[11px]
+            text-center
             uppercase
             tracking-[0.14em]
             text-[var(--ink-faint)]
@@ -32,6 +35,7 @@ function Footer() {
           className="
             font-mono
             text-[11px]
+            text-center
             uppercase
             tracking-[0.14em]
             text-[var(--ink-faint)]

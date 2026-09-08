@@ -70,7 +70,7 @@ function Resume() {
                 gap-8
                 p-6
                 sm:p-8
-                md:grid-cols-[1fr_220px]
+                lg:grid-cols-[1fr_220px]
                 md:items-center
                 md:p-9
               "

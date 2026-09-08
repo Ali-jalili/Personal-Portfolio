@@ -10,6 +10,7 @@
   /* ---------- Text ---------- */
 
   --ink: #101828;
+  --ink-muted: #667085;
   --ink-faint: #98a2b3;
 
   /* ---------- Lines ---------- */
@@ -123,6 +124,7 @@
   body {
     margin: 0;
     min-width: 320px;
+    overflow-x: hidden;
     background: var(--bg);
     color: var(--ink);
     font-family: var(--font-body);
@@ -158,7 +160,7 @@
 
 @layer components {
   .container {
-    width: min(calc(100% - 48px), var(--container));
+    width: min(calc(100% - 2 * var(--gutter)), var(--container));
     margin-inline: auto;
   }
 
@@ -182,6 +184,10 @@
     content-visibility: auto;
     contain-intrinsic-size: auto 700px;
   }
+}
+
+:root {
+  --gutter: clamp(1rem, 4vw, 3rem);
 }
 
 /* =========================================================
@@ -273,6 +279,11 @@
   .hero-shader-layer {
     display: none;
   }
+
+  .section,
+  .section-tight {
+    padding-block: clamp(3.5rem, 12vw, 5rem);
+  }
 }
 
 /* =========================================================
@@ -354,10 +365,6 @@
    ========================================================= */
 
 @media (max-width: 640px) {
-  .container {
-    width: min(calc(100% - 32px), var(--container));
-  }
-
   .text-mega {
     font-size: clamp(3.5rem, 18vw, 6rem);
   }

@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
+import { useEffect } from "react";
 
 import type { Project } from "../../types/project";
 
@@ -13,6 +14,24 @@ type ProjectDetailsProps = {
 const ease = [0.22, 1, 0.36, 1] as const;
 
 function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
+  useEffect(() => {
+    if (!project) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose, project]);
+
   return (
     <AnimatePresence>
       {project && (
@@ -21,6 +40,7 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
+          role="presentation"
           className="
             fixed
             inset-0
@@ -29,10 +49,13 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
             items-end
             justify-center
             bg-black/40
-            p-3
-            backdrop-blur-sm
+            px-3
+            pb-[max(0.75rem,env(safe-area-inset-bottom))]
+            pt-[max(0.75rem,env(safe-area-inset-top))]
+            backdrop-blur-none
             md:items-center
             md:p-4
+            md:backdrop-blur-sm
           "
         >
           <motion.div
@@ -56,19 +79,25 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
               ease,
             }}
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-details-title"
             className="
               relative
-              max-h-[90vh]
+              max-h-[calc(100dvh-1.5rem)]
               w-full
               overflow-y-auto
-              rounded-t-3xl
+              overscroll-contain
+              rounded-2xl
               border
               border-[var(--line)]
               bg-[var(--surface)]
-              p-5
+              text-left
+              p-4
               shadow-[0_30px_80px_rgba(0,0,0,0.12)]
               sm:p-6
               md:max-w-4xl
+              md:max-h-[90vh]
               md:rounded-3xl
               md:p-10
             "
@@ -78,8 +107,8 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
               onClick={onClose}
               className="
                 absolute
-                right-4
-                top-4
+                right-3
+                top-3
                 grid
                 h-9
                 w-9
@@ -90,6 +119,8 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
                 text-[var(--ink-muted)]
                 transition
                 hover:text-[var(--ink)]
+                sm:right-4
+                sm:top-4
                 md:right-5
                 md:top-5
               "
@@ -112,6 +143,7 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
               </span>
 
               <h2
+                id="project-details-title"
                 className="
                   mt-4
                   text-3xl

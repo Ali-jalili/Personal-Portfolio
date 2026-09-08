@@ -115,7 +115,7 @@ function HowIWork() {
                 hidden
                 h-px
                 bg-[var(--line)]
-                md:block
+                lg:block
               "
             />
 
@@ -123,7 +123,8 @@ function HowIWork() {
               className="
                 grid
                 gap-10
-                md:grid-cols-3
+                md:grid-cols-2
+                lg:grid-cols-3
                 md:gap-8
               "
             >
@@ -189,7 +190,7 @@ function HowIWork() {
                           h-px
                           flex-1
                           bg-[var(--line)]
-                          md:hidden
+                          lg:hidden
                         "
                       />
                     )}

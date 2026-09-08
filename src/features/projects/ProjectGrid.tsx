@@ -31,7 +31,8 @@ function ProjectGrid({ projects }: ProjectGridProps) {
 
   useEffect(() => {
     const updateProjectsPerPage = () => {
-      const nextProjectsPerPage = window.innerWidth < 768 ? 2 : 3;
+      const nextProjectsPerPage =
+        window.innerWidth < 640 ? 1 : window.innerWidth < 768 ? 2 : 3;
 
       setProjectsPerPage((current) => {
         if (current !== nextProjectsPerPage) {

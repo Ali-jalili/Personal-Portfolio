@@ -30,7 +30,7 @@ function Navbar() {
         duration: 0.8,
         ease,
       }}
-      className="fixed inset-x-0 top-0 z-50 px-4 py-4 sm:px-6"
+      className="fixed inset-x-0 top-0 z-50 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] py-3 sm:px-6 sm:py-4"
     >
       <div className="container">
         <nav
@@ -43,8 +43,10 @@ function Navbar() {
             border
             border-[var(--line)]
             bg-[color:var(--surface)]/80
-            px-5
-            py-3
+            px-4
+            py-2.5
+            sm:px-5
+            sm:py-3
             shadow-[0_8px_30px_rgba(0,0,0,0.04)]
             backdrop-blur-none
             md:backdrop-blur-xl

@@ -9,7 +9,7 @@ function SkillMap() {
   return (
     <>
       {/* Desktop Skill Map */}
-      <div className="relative mx-auto mt-14 hidden h-[500px] max-w-[980px] md:block lg:h-[540px]">
+      <div className="relative mx-auto mt-14 hidden h-[500px] max-w-[980px] lg:block lg:h-[540px]">
         {/* Grid */}
         <div
           aria-hidden="true"
@@ -57,7 +57,7 @@ function SkillMap() {
       </div>
 
       {/* Mobile Skill Map */}
-      <div className="mt-12 md:hidden">
+      <div className="mt-12 lg:hidden">
         <div className="relative mx-auto mb-10 h-40 w-full max-w-sm">
           <div
             aria-hidden="true"
