@@ -275,6 +275,7 @@
 }
 
 .project-modal-backdrop {
+  z-index: 100;
   align-items: flex-end;
   padding: max(0.75rem, env(safe-area-inset-top))
     max(0.75rem, env(safe-area-inset-right))

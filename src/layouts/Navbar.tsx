@@ -125,35 +125,38 @@ function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Controls */}
 
-          <button
-            type="button"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isOpen}
-            onClick={() => setIsOpen((prev) => !prev)}
-            className="
-              grid
-              h-9
-              w-9
-              place-items-center
-              rounded-full
-              border
-              border-[var(--line)]
-              text-[var(--ink-muted)]
-              transition-all
-              duration-200
-              hover:border-[var(--line-strong)]
-              hover:text-[var(--ink)]
-              md:hidden
-            "
-          >
-            {isOpen ? (
-              <X size={17} strokeWidth={1.5} />
-            ) : (
-              <Menu size={17} strokeWidth={1.5} />
-            )}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+
+            <button
+              type="button"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen((prev) => !prev)}
+              className="
+                grid
+                h-9
+                w-9
+                place-items-center
+                rounded-full
+                border
+                border-[var(--line)]
+                text-[var(--ink-muted)]
+                transition-all
+                duration-200
+                hover:border-[var(--line-strong)]
+                hover:text-[var(--ink)]
+              "
+            >
+              {isOpen ? (
+                <X size={17} strokeWidth={1.5} />
+              ) : (
+                <Menu size={17} strokeWidth={1.5} />
+              )}
+            </button>
+          </div>
 
           {/* Mobile Menu */}
 
@@ -219,32 +222,6 @@ function Navbar() {
                   ))}
 
                   <div className="my-2 h-px bg-[var(--line)]" />
-
-                  {/* Mobile Theme */}
-
-                  <div
-                    className="
-                      flex
-                      items-center
-                      justify-between
-                      rounded-xl
-                      px-4
-                      py-3
-                    "
-                  >
-                    <span
-                      className="
-                        font-sans
-                        text-sm
-                        font-medium
-                        text-[var(--ink-muted)]
-                      "
-                    >
-                      Theme
-                    </span>
-
-                    <ThemeToggle />
-                  </div>
 
                   <a
                     href="#contact"
