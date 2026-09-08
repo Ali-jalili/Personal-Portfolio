@@ -18,6 +18,7 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
     if (!project) return;
 
     const previousOverflow = document.body.style.overflow;
+
     document.body.style.overflow = "hidden";
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -30,7 +31,7 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [onClose, project]);
+  }, [project, onClose]);
 
   return (
     <AnimatePresence>
@@ -40,7 +41,6 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          role="presentation"
           className="
             fixed
             inset-0
@@ -50,13 +50,10 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
             justify-center
             bg-black/40
             px-3
-            pb-[max(0.75rem,env(safe-area-inset-bottom))]
-            pt-[max(0.75rem,env(safe-area-inset-top))]
-            backdrop-blur-none
+            pt-24
+            pb-3
             md:items-center
             md:p-4
-            md:backdrop-blur-sm
-            project-modal-backdrop
           "
         >
           <motion.div
@@ -76,7 +73,7 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
               scale: 0.98,
             }}
             transition={{
-              duration: 0.45,
+              duration: 0.35,
               ease,
             }}
             onClick={(e) => e.stopPropagation()}
@@ -84,223 +81,229 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
             aria-modal="true"
             aria-labelledby="project-details-title"
             className="
-              relative
+              flex
               w-full
+              max-h-[calc(100dvh-7rem)]
+              flex-col
+              overflow-hidden
+              rounded-3xl
               border
               border-[var(--line)]
               bg-[var(--surface)]
-              text-left
-              shadow-[0_30px_80px_rgba(0,0,0,0.12)]
+              shadow-[0_30px_80px_rgba(0,0,0,0.18)]
               md:max-w-4xl
-              project-modal
+              md:max-h-[90vh]
             "
           >
-            {/* Close */}
-            <button
-              onClick={onClose}
-              className="
-                absolute
-                right-3
-                top-3
-                grid
-                h-9
-                w-9
-                place-items-center
-                rounded-full
-                border
-                border-[var(--line)]
-                text-[var(--ink-muted)]
-                transition
-                hover:text-[var(--ink)]
-                sm:right-4
-                sm:top-4
-                md:right-5
-                md:top-5
-              "
-            >
-              <X size={16} />
-            </button>
-
             {/* Header */}
-            <div className="pr-10">
-              <span
-                className="
-                  font-mono
-                  text-[10px]
-                  uppercase
-                  tracking-[0.18em]
-                  text-[var(--accent-strong)]
-                "
-              >
-                Project Case Study
-              </span>
-
-              <h2
-                id="project-details-title"
-                className="
-                  mt-4
-                  text-3xl
-                  font-semibold
-                  tracking-[-0.05em]
-                  text-[var(--ink)]
-                  md:text-4xl
-                "
-              >
-                {project.title}
-              </h2>
-            </div>
-
-            {/* Overview */}
-            <Section title="Overview">
-              <p>{project.overview}</p>
-            </Section>
-
-            {/* Problem */}
-            <Section title="Problem">
-              <p>{project.problem}</p>
-            </Section>
-
-            {/* Engineering Focus */}
-            <Section title="Engineering Focus">
-              <div
-                className="
-                  grid
-                  gap-3
-                  sm:grid-cols-2
-                "
-              >
-                {project.focus.map((item) => (
-                  <div
-                    key={item}
-                    className="
-                      rounded-xl
-                      border
-                      border-[var(--line)]
-                      p-4
-                      text-sm
-                      leading-6
-                      text-[var(--ink-muted)]
-                      transition
-                      hover:border-[var(--line-strong)]
-                    "
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </Section>
-
-            {/* Features */}
-            <Section title="Key Features">
-              <div
-                className="
-                  grid
-                  gap-3
-                  sm:grid-cols-2
-                "
-              >
-                {project.features.map((feature) => (
-                  <div
-                    key={feature}
-                    className="
-                      rounded-xl
-                      border
-                      border-[var(--line)]
-                      p-4
-                      text-sm
-                      leading-6
-                      text-[var(--ink-muted)]
-                    "
-                  >
-                    {feature}
-                  </div>
-                ))}
-              </div>
-            </Section>
-
-            {/* Technologies */}
-            <Section title="Technology Stack">
-              <div
-                className="
-                  flex
-                  flex-wrap
-                  gap-2
-                "
-              >
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="
-                      rounded-lg
-                      border
-                      border-[var(--line)]
-                      px-3
-                      py-1
-                      font-mono
-                      text-[10px]
-                      uppercase
-                      tracking-[0.05em]
-                      text-[var(--ink-faint)]
-                    "
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </Section>
-
-            {/* Links */}
-            <div
+            <header
               className="
-                mt-10
+                sticky
+                top-0
+                z-10
                 flex
-                flex-wrap
-                gap-5
-                border-t
+                shrink-0
+                items-start
+                justify-between
+                border-b
                 border-[var(--line)]
-                pt-6
+                bg-[var(--surface)]
+                px-5
+                py-5
+                md:px-10
+                md:py-7
               "
             >
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <div className="pr-8">
+                <span
                   className="
-                    inline-flex
-                    items-center
-                    gap-2
                     font-mono
-                    text-xs
+                    text-[10px]
                     uppercase
-                    text-[var(--ink-muted)]
-                    hover:text-[var(--ink)]
-                  "
-                >
-                  GitHub
-                  <ArrowUpRight size={14} />
-                </a>
-              )}
-
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-flex
-                    items-center
-                    gap-2
-                    font-mono
-                    text-xs
-                    uppercase
+                    tracking-[0.18em]
                     text-[var(--accent-strong)]
                   "
                 >
-                  Live Demo
-                  <ArrowUpRight size={14} />
-                </a>
-              )}
+                  Project Case Study
+                </span>
+
+                <h2
+                  id="project-details-title"
+                  className="
+                    mt-3
+                    text-3xl
+                    font-semibold
+                    tracking-[-0.05em]
+                    text-[var(--ink)]
+                    md:text-4xl
+                  "
+                >
+                  {project.title}
+                </h2>
+              </div>
+
+              <button
+                onClick={onClose}
+                aria-label="Close project details"
+                className="
+                  absolute
+                  right-4
+                  top-4
+                  grid
+                  h-9
+                  w-9
+                  place-items-center
+                  rounded-full
+                  border
+                  border-[var(--line)]
+                  bg-[var(--surface)]
+                  text-[var(--ink-muted)]
+                  transition
+                  hover:text-[var(--ink)]
+                  md:right-6
+                  md:top-6
+                "
+              >
+                <X size={16} />
+              </button>
+            </header>
+
+            {/* Scroll Content */}
+            <div
+              className="
+                overflow-y-auto
+                px-5
+                pb-6
+                md:px-10
+                md:pb-10
+              "
+            >
+              <Section title="Overview">
+                <p>{project.overview}</p>
+              </Section>
+
+              <Section title="Problem">
+                <p>{project.problem}</p>
+              </Section>
+
+              <Section title="Engineering Focus">
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {project.focus.map((item) => (
+                    <div
+                      key={item}
+                      className="
+                        rounded-xl
+                        border
+                        border-[var(--line)]
+                        p-4
+                        text-sm
+                        leading-6
+                        text-[var(--ink-muted)]
+                      "
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </Section>
+
+              <Section title="Key Features">
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {project.features.map((feature) => (
+                    <div
+                      key={feature}
+                      className="
+                        rounded-xl
+                        border
+                        border-[var(--line)]
+                        p-4
+                        text-sm
+                        leading-6
+                        text-[var(--ink-muted)]
+                      "
+                    >
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </Section>
+
+              <Section title="Technology Stack">
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="
+                        rounded-lg
+                        border
+                        border-[var(--line)]
+                        px-3
+                        py-1
+                        font-mono
+                        text-[10px]
+                        uppercase
+                        tracking-[0.05em]
+                        text-[var(--ink-faint)]
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </Section>
+
+              <div
+                className="
+                  mt-10
+                  flex
+                  flex-wrap
+                  gap-5
+                  border-t
+                  border-[var(--line)]
+                  pt-6
+                "
+              >
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      font-mono
+                      text-xs
+                      uppercase
+                      text-[var(--ink-muted)]
+                      hover:text-[var(--ink)]
+                    "
+                  >
+                    GitHub
+                    <ArrowUpRight size={14} />
+                  </a>
+                )}
+
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      font-mono
+                      text-xs
+                      uppercase
+                      text-[var(--accent-strong)]
+                    "
+                  >
+                    Live Demo
+                    <ArrowUpRight size={14} />
+                  </a>
+                )}
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -317,7 +320,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mt-10">
+    <section className="mt-8 md:mt-10">
       <h3
         className="
           font-mono
