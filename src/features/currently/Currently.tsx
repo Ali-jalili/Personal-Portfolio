@@ -17,61 +17,154 @@ function Currently() {
         >
           {/* Header */}
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
+            <span
+              className="
+                font-mono
+                text-[10px]
+                uppercase
+                tracking-[0.18em]
+                text-[var(--ink-faint)]
+              "
+            >
               Currently
             </span>
 
-            <span className="font-mono text-[10px] text-[var(--ink-faint)]">
+            <span
+              className="
+                font-mono
+                text-[10px]
+                text-[var(--ink-faint)]
+              "
+            >
               06
             </span>
           </div>
 
           {/* Content */}
           <div className="mt-10 max-w-3xl">
-            <h2 className="text-heading text-[var(--ink)]">
-              Building toward the{" "}
-              <span className="serif-italic text-[var(--accent-strong)]">
-                next step.
+            <h2
+              className="
+                text-heading
+                text-[var(--ink)]
+              "
+            >
+              Focused on becoming a{" "}
+              <span
+                className="
+                  serif-italic
+                  text-[var(--accent-strong)]
+                "
+              >
+                better engineer.
               </span>
             </h2>
 
-            <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[var(--ink-muted)]">
-              I&apos;m currently focused on strengthening my frontend
-              engineering skills through real-world projects, improving how I
-              think about architecture and product decisions, and preparing to
-              contribute to a professional development team.
+            <p
+              className="
+                mt-5
+                max-w-2xl
+                text-[15px]
+                leading-7
+                text-[var(--ink-muted)]
+              "
+            >
+              I&apos;m focused on building real products, improving my frontend
+              architecture skills, and learning through practical engineering
+              problems and continuous iteration.
             </p>
           </div>
 
-          {/* Current focus */}
-          <div className="mt-10 border-t border-[var(--line)] pt-5">
-            <div className="grid gap-5 sm:grid-cols-3 sm:gap-8">
+          {/* Current Focus */}
+          <div
+            className="
+              mt-10
+              border-t
+              border-[var(--line)]
+              pt-5
+            "
+          >
+            <div
+              className="
+                grid
+                gap-5
+                sm:grid-cols-3
+                sm:gap-8
+              "
+            >
+              {/* Building */}
               <div>
-                <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--ink-faint)]">
-                  Focus
+                <span
+                  className="
+                    font-mono
+                    text-[9px]
+                    uppercase
+                    tracking-[0.15em]
+                    text-[var(--ink-faint)]
+                  "
+                >
+                  Building
                 </span>
 
-                <p className="mt-2 text-sm text-[var(--ink)]">
-                  Frontend Engineering
+                <p
+                  className="
+                    mt-2
+                    text-sm
+                    text-[var(--ink)]
+                  "
+                >
+                  Real-world Applications
                 </p>
               </div>
 
+              {/* Improving */}
               <div>
-                <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--ink-faint)]">
-                  Learning
+                <span
+                  className="
+                    font-mono
+                    text-[9px]
+                    uppercase
+                    tracking-[0.15em]
+                    text-[var(--ink-faint)]
+                  "
+                >
+                  Improving
                 </span>
 
-                <p className="mt-2 text-sm text-[var(--ink)]">
-                  Architecture &amp; Product Thinking
+                <p
+                  className="
+                    mt-2
+                    text-sm
+                    text-[var(--ink)]
+                  "
+                >
+                  React & TypeScript Workflow
                 </p>
               </div>
 
+              {/* Goal */}
               <div>
-                <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--ink-faint)]">
-                  Direction
+                <span
+                  className="
+                    font-mono
+                    text-[9px]
+                    uppercase
+                    tracking-[0.15em]
+                    text-[var(--ink-faint)]
+                  "
+                >
+                  Goal
                 </span>
 
-                <p className="mt-2 inline-flex items-center gap-2 text-sm text-[var(--accent-strong)]">
+                <p
+                  className="
+                    mt-2
+                    inline-flex
+                    items-center
+                    gap-2
+                    text-sm
+                    text-[var(--accent-strong)]
+                  "
+                >
                   <span
                     aria-hidden="true"
                     className="
