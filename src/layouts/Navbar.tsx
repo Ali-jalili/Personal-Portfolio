@@ -13,6 +13,7 @@ const navItems = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Process", href: "#how-i-work" },
+  { label: "Resume", href: "#resume" },
 ];
 
 const ease = [0.23, 1, 0.32, 1] as const;
