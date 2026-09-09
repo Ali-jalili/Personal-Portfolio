@@ -78,7 +78,7 @@ function SkillCard({ skill, index, mobile = false }: SkillCardProps) {
         </div>
 
         <div className="min-w-0">
-          <span className="block break-words font-display text-[14px] font-medium tracking-[-0.02em] text-[var(--ink)] sm:text-[15px]">
+          <span className="block break-words font-display text-[14px] font-medium tracking-[-0.02em] text-[var(--ink)] sm:text-[15px] font-mono">
             {skill.name}
           </span>
 
