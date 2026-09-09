@@ -1,80 +1,42 @@
 /** @format */
 
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { lazy, Suspense, useEffect, useState } from "react";
 
-import type { Project } from "../../types/project";
+import { projects } from "../../data/projects";
 
 import ProjectCard from "./ProjectCard";
 
-const ProjectDetails = lazy(() => import("./ProjectDetails"));
+import ProjectModal from "./ProjectModal";
 
-type ProjectGridProps = {
-  projects: Project[];
-};
+import type { Project } from "../../types/project";
 
-const ease = [0.22, 1, 0.36, 1] as const;
-
-function ProjectGrid({ projects }: ProjectGridProps) {
-  const [page, setPage] = useState(0);
-  const [direction, setDirection] = useState<1 | -1>(1);
-  const [projectsPerPage, setProjectsPerPage] = useState(3);
-
+export default function ProjectGrid() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const start = page * projectsPerPage;
+  const activeProject = projects[activeIndex];
 
-  const visibleProjects = projects.slice(start, start + projectsPerPage);
-
-  useEffect(() => {
-    const updateProjectsPerPage = () => {
-      const nextProjectsPerPage =
-        window.innerWidth < 640 ? 1 : window.innerWidth < 768 ? 2 : 3;
-
-      setProjectsPerPage((current) => {
-        if (current !== nextProjectsPerPage) {
-          setPage(0);
-        }
-
-        return nextProjectsPerPage;
-      });
-    };
-
-    updateProjectsPerPage();
-
-    window.addEventListener("resize", updateProjectsPerPage);
-
-    return () => window.removeEventListener("resize", updateProjectsPerPage);
-  }, []);
-
-  const goNext = () => {
-    if (page < totalPages - 1) {
-      setDirection(1);
-      setPage((current) => current + 1);
-    }
+  const handlePrevious = () => {
+    setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
 
-  const goPrevious = () => {
-    if (page > 0) {
-      setDirection(-1);
-      setPage((current) => current - 1);
-    }
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
   return (
-    <>
-      <div className="mt-12 md:mt-14">
-        {/* Projects */}
-        <div className="relative pb-3">
-          <AnimatePresence mode="wait" custom={direction}>
+    <section className="section" id="projects">
+      <div className="container">
+        {/* Mobile Showcase */}
+        <div className="md:hidden">
+          <AnimatePresence mode="wait">
             <motion.div
-              key={page}
+              key={activeProject.id}
               initial={{
                 opacity: 0,
-                x: direction * 25,
+                x: 50,
               }}
               animate={{
                 opacity: 1,
@@ -82,121 +44,103 @@ function ProjectGrid({ projects }: ProjectGridProps) {
               }}
               exit={{
                 opacity: 0,
-                x: direction * -25,
+                x: -50,
               }}
               transition={{
-                duration: 0.45,
-                ease,
+                duration: 0.35,
+                ease: [0.22, 1, 0.36, 1],
               }}
-              className="
-                grid
-                grid-cols-1
-                gap-8
-                sm:grid-cols-2
-                md:grid-cols-3
-                md:gap-6
-              "
             >
-              {visibleProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.08,
-                    ease,
-                  }}
-                >
-                  <ProjectCard
-                    project={project}
-                    onOpen={() => setSelectedProject(project)}
-                  />
-                </motion.div>
-              ))}
+              <ProjectCard
+                project={activeProject}
+                onOpenDetails={() => setSelectedProject(activeProject)}
+              />
             </motion.div>
           </AnimatePresence>
+
+          <div className="mt-6 flex items-center justify-between">
+            <button
+              type="button"
+              onClick={handlePrevious}
+              className="
+                rounded-full
+                border
+                border-[var(--line)]
+                px-4
+                py-2
+                font-mono
+                text-xs
+                uppercase
+                tracking-[0.1em]
+                text-[var(--ink-muted)]
+                transition
+                hover:border-[var(--accent)]
+                hover:text-[var(--ink)]
+              "
+            >
+              ← Previous
+            </button>
+
+            <span
+              className="
+                font-mono
+                text-xs
+                text-[var(--ink-faint)]
+              "
+            >
+              {String(activeIndex + 1).padStart(2, "0")} /{" "}
+              {String(projects.length).padStart(2, "0")}
+            </span>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              className="
+                rounded-full
+                border
+                border-[var(--line)]
+                px-4
+                py-2
+                font-mono
+                text-xs
+                uppercase
+                tracking-[0.1em]
+                text-[var(--ink-muted)]
+                transition
+                hover:border-[var(--accent)]
+                hover:text-[var(--ink)]
+              "
+            >
+              Next →
+            </button>
+          </div>
         </div>
 
-        {/* Navigation */}
-        <div className="mt-6 flex items-center justify-center gap-4">
-          <span
-            className="
-              order-2
-              min-w-12
-              text-center
-              font-mono
-              text-[9px]
-              uppercase
-              tracking-[0.14em]
-              text-[var(--ink-faint)]
-            "
-          >
-            {String(page + 1).padStart(2, "0")} /{" "}
-            {String(totalPages).padStart(2, "0")}
-          </span>
-
-          <motion.button
-            type="button"
-            onClick={goPrevious}
-            disabled={page === 0}
-            className="
-              grid
-              h-10
-              w-10
-              place-items-center
-              rounded-full
-              border
-              border-[var(--line)]
-              bg-[var(--surface)]
-              text-[var(--ink-muted)]
-              transition-all
-              disabled:opacity-30
-            "
-          >
-            <ArrowLeft size={17} />
-          </motion.button>
-
-          <motion.button
-            type="button"
-            onClick={goNext}
-            disabled={page === totalPages - 1}
-            className="
-              grid
-              h-10
-              w-10
-              place-items-center
-              rounded-full
-              border
-              border-[var(--line)]
-              bg-[var(--surface)]
-              text-[var(--ink-muted)]
-              transition-all
-              disabled:opacity-30
-            "
-          >
-            <ArrowRight size={17} />
-          </motion.button>
+        {/* Desktop Grid */}
+        <div
+          className="
+            hidden
+            md:grid
+            md:grid-cols-2
+            lg:grid-cols-3
+            gap-6
+          "
+        >
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onOpenDetails={() => setSelectedProject(project)}
+            />
+          ))}
         </div>
+
+        {/* Modal */}
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
       </div>
-
-      {/* Project Details Modal */}
-      {selectedProject && (
-        <Suspense fallback={null}>
-          <ProjectDetails
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-          />
-        </Suspense>
-      )}
-    </>
+    </section>
   );
 }
-
-export default ProjectGrid;

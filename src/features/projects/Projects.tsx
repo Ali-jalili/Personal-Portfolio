@@ -48,7 +48,7 @@ function Projects() {
           </div>
         </motion.div>
 
-        <ProjectGrid projects={projects} />
+        <ProjectGrid />
       </div>
     </section>
   );

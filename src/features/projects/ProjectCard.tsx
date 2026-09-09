@@ -1,228 +1,82 @@
 /** @format */
 
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "../../types/project";
 
-type ProjectCardProps = {
+interface ProjectCardProps {
   project: Project;
-  onOpen: () => void;
-};
+  onOpenDetails: (project: Project) => void;
+}
 
-function ProjectCard({ project, onOpen }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  onOpenDetails,
+}: ProjectCardProps) {
   return (
-    <article
-      className="
-        group
-        overflow-hidden
-        rounded-2xl
-        border
-        border-[var(--line)]
-        bg-[var(--surface-soft)]
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:border-[var(--line-strong)]
-      "
-    >
-      {/* Preview */}
-      <div
-        className="
-          aspect-video
-          overflow-hidden
-          bg-[var(--surface)]
-        "
-      >
-        {project.image ? (
+    <div className="group flex flex-col justify-between rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-5 md:p-6 shadow-lg transition-all duration-300 hover:border-[var(--accent-strong)] hover:shadow-2xl">
+      <div>
+        {/* Project Thumbnail - Fixed image sizing and containment */}
+        <div
+          onClick={() => onOpenDetails(project)}
+          className="relative overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--surface-soft)] aspect-[16/10] mb-5 cursor-pointer flex items-center justify-center p-2"
+        >
           <img
             src={project.image}
-            alt={`${project.title} project preview`}
-            loading="lazy"
-            className="
-              h-full
-              w-full
-              object-contain
-              transition-transform
-              duration-500
-              group-hover:scale-[1.02]
-            "
+            alt={project.title}
+            className="w-full h-full object-contain object-center rounded-md transition-transform duration-500 group-hover:scale-105"
           />
-        ) : (
-          <div
-            className="
-              flex
-              h-full
-              items-center
-              justify-center
-            "
-          >
-            <span
-              className="
-                font-mono
-                text-[9px]
-                uppercase
-                tracking-[0.14em]
-                text-[var(--ink-faint)]
-              "
-            >
-              Project Preview
+          <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <span className="btn-primary text-xs shadow-lg py-1.5 px-3">
+              View Architecture
             </span>
           </div>
-        )}
-      </div>
+        </div>
 
-      {/* Content */}
-      <div className="p-6">
-        {/* Title */}
-        <h3
-          className="
-            font-display
-            text-2xl
-            font-semibold
-            tracking-[-0.04em]
-            text-[var(--ink)]
-          "
-        >
-          {project.title}
-        </h3>
+        {/* Title & Badge */}
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-xl font-semibold tracking-tight text-[var(--ink)]">
+            {project.title}
+          </h3>
+          <span className="rounded-md border border-[var(--line)] bg-[var(--accent-soft)] px-2 py-0.5 font-mono text-[10px] uppercase text-[var(--accent-strong)]">
+            Production
+          </span>
+        </div>
 
         {/* Description */}
-        <p
-          className="
-            mt-3
-            line-clamp-2
-            text-sm
-            leading-6
-            text-[var(--ink-muted)]
-          "
-        >
+        <p className="text-xs leading-relaxed text-[var(--ink-muted)] line-clamp-2 mb-4">
           {project.description}
         </p>
 
-        {/* Stack */}
-        <div className="mt-6">
-          <span
-            className="
-              font-mono
-              text-[11px]
-              uppercase
-              tracking-[0.14em]
-              text-[var(--ink-faint)]
-            "
-          >
-            Stack
-          </span>
-
-          <div
-            className="
-              mt-3
-              flex
-              flex-wrap
-              gap-2
-            "
-          >
-            {project.technologies.slice(0, 4).map((technology) => (
-              <span
-                key={technology}
-                className="
-                    rounded-lg
-                    border
-                    border-[var(--line)]
-                    px-3
-                    py-1
-                    font-mono
-                    text-[10px]
-                    uppercase
-                    tracking-[0.05em]
-                    text-[var(--ink-faint)]
-                  "
-              >
-                {technology}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Actions */}
-        <div
-          className="
-            mt-7
-            flex
-            flex-wrap
-            items-center
-            gap-4
-            border-t
-            border-[var(--line)]
-            pt-5
-          "
-        >
-          <button
-            type="button"
-            onClick={onOpen}
-            className="
-              inline-flex
-              items-center
-              gap-2
-              rounded-full
-              border
-              border-[var(--line)]
-              px-4
-              py-2
-              font-mono
-              text-[11px]
-              font-medium
-              uppercase
-              tracking-[0.1em]
-              text-[var(--ink)]
-              transition-all
-              duration-300
-              hover:border-[var(--accent)]
-              hover:text-[var(--accent-strong)]
-            "
-          >
-            View Case Study
-            <span>↗</span>
-          </button>
-
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                font-mono
-                text-[11px]
-                uppercase
-                tracking-[0.1em]
-                text-[var(--ink-muted)]
-                transition-colors
-                hover:text-[var(--ink)]
-              "
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-1.5 mb-6">
+          {project.technologies.slice(0, 4).map((tech) => (
+            <span
+              key={tech}
+              className="rounded border border-[var(--line)] bg-[var(--surface-soft)] px-2 py-0.5 font-mono text-[10px] text-[var(--ink-muted)]"
             >
-              GitHub
-            </a>
-          )}
-
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                font-mono
-                text-[11px]
-                uppercase
-                tracking-[0.1em]
-                text-[var(--accent-strong)]
-                transition-colors
-                hover:text-[var(--accent)]
-              "
-            >
-              Live
-            </a>
+              {tech}
+            </span>
+          ))}
+          {project.technologies.length > 4 && (
+            <span className="rounded border border-[var(--line)] bg-[var(--surface-soft)] px-2 py-0.5 font-mono text-[10px] text-[var(--ink-faint)]">
+              +{project.technologies.length - 4}
+            </span>
           )}
         </div>
       </div>
-    </article>
+
+      {/* Footer single clean action button */}
+      <div className="flex items-center justify-between pt-4 border-t border-[var(--line)]">
+        <button
+          onClick={() => onOpenDetails(project)}
+          className="btn-ghost text-xs w-full justify-between"
+        >
+          <span className="font-mono text-[var(--accent-strong)]">
+            // Architecture & Details
+          </span>
+          <ArrowUpRight size={14} className="text-[var(--accent-strong)]" />
+        </button>
+      </div>
+    </div>
   );
 }
-
-export default ProjectCard;
