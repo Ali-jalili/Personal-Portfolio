@@ -277,7 +277,9 @@
 .project-modal-backdrop {
   z-index: 100;
   align-items: flex-end;
-  padding: max(0.75rem, env(safe-area-inset-top))
+
+  padding:
+    max(1rem, env(safe-area-inset-top))
     max(0.75rem, env(safe-area-inset-right))
     max(0.75rem, env(safe-area-inset-bottom))
     max(0.75rem, env(safe-area-inset-left));
@@ -285,30 +287,60 @@
 
 .project-modal {
   width: min(100%, 56rem);
-  max-height: calc(100dvh - 1.5rem);
+
+  max-height: calc(100dvh - 2rem);
+
   overflow-y: auto;
   overscroll-behavior: contain;
-  border-radius: var(--r-md);
-  padding: 1rem;
+
+  border-radius: var(--r-lg);
+
+  padding: 1.25rem;
 }
 
-@media (min-width: 640px) {
-  .project-modal {
-    padding: 1.5rem;
+
+/* Mobile */
+@media (max-width: 767px) {
+
+  .project-modal-backdrop {
+    align-items: flex-end;
+
+    /* فاصله از navbar ثابت */
+    padding-top: 5rem;
   }
+
+
+  .project-modal {
+    max-height: calc(100dvh - 6rem);
+
+    border-radius: 24px 24px 0 0;
+
+    padding: 1rem;
+
+  }
+
 }
 
+
+/* Desktop */
 @media (min-width: 768px) {
+
   .project-modal-backdrop {
     align-items: center;
     padding: 1rem;
   }
 
+
   .project-modal {
+
     max-height: 90vh;
+
     border-radius: var(--r-lg);
+
     padding: 2.5rem;
+
   }
+
 }
 
 @media (max-width: 767px) {

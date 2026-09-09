@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
 import { useEffect } from "react";
-
+import { createPortal } from "react-dom";
 import type { Project } from "../../types/project";
 
 type ProjectDetailsProps = {
@@ -17,167 +17,69 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
   useEffect(() => {
     if (!project) return;
 
-    const previousOverflow = document.body.style.overflow;
-
+    const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
     };
-
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = originalOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [project, onClose]);
 
-  return (
+  // پورتال باعث می‌شود مودال مستقیماً به بادی منتقل شود و از تداخل CSS والدین نجات پیدا کند
+  if (typeof window === "undefined") return null;
+
+  return createPortal(
     <AnimatePresence>
       {project && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="
-            fixed
-            inset-0
-            z-[100]
-            flex
-            items-end
-            justify-center
-            bg-black/40
-            px-3
-            pt-24
-            pb-3
-            md:items-center
-            md:p-4
-          "
-        >
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 md:p-10">
+          {/* لایه تاریک پشت مودال */}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 40,
-              scale: 0.98,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-            }}
-            exit={{
-              opacity: 0,
-              y: 30,
-              scale: 0.98,
-            }}
-            transition={{
-              duration: 0.35,
-              ease,
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="absolute inset-0 bg-black/75 backdrop-blur-md"
+          />
+
+          {/* بدنه اصلی مودال */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.3, ease }}
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
-            aria-labelledby="project-details-title"
-            className="
-              flex
-              w-full
-              max-h-[calc(100dvh-7rem)]
-              flex-col
-              overflow-hidden
-              rounded-3xl
-              border
-              border-[var(--line)]
-              bg-[var(--surface)]
-              shadow-[0_30px_80px_rgba(0,0,0,0.18)]
-              md:max-w-4xl
-              md:max-h-[90vh]
-            "
+            className="relative flex max-h-[85vh] w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--surface)] shadow-2xl"
           >
             {/* Header */}
-            <header
-              className="
-                sticky
-                top-0
-                z-10
-                flex
-                shrink-0
-                items-start
-                justify-between
-                border-b
-                border-[var(--line)]
-                bg-[var(--surface)]
-                px-5
-                py-5
-                md:px-10
-                md:py-7
-              "
-            >
-              <div className="pr-8">
-                <span
-                  className="
-                    font-mono
-                    text-[10px]
-                    uppercase
-                    tracking-[0.18em]
-                    text-[var(--accent-strong)]
-                  "
-                >
+            <div className="sticky top-0 z-10 flex shrink-0 items-center justify-between border-b border-[var(--line)] bg-[var(--surface)] px-6 py-5 md:px-8 md:py-6">
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--accent-strong)]">
                   Project Case Study
                 </span>
-
-                <h2
-                  id="project-details-title"
-                  className="
-                    mt-3
-                    text-3xl
-                    font-semibold
-                    tracking-[-0.05em]
-                    text-[var(--ink)]
-                    md:text-4xl
-                  "
-                >
+                <h2 className="mt-1 text-xl font-semibold tracking-tight text-[var(--ink)] md:text-2xl">
                   {project.title}
                 </h2>
               </div>
 
               <button
                 onClick={onClose}
-                aria-label="Close project details"
-                className="
-                  absolute
-                  right-4
-                  top-4
-                  grid
-                  h-9
-                  w-9
-                  place-items-center
-                  rounded-full
-                  border
-                  border-[var(--line)]
-                  bg-[var(--surface)]
-                  text-[var(--ink-muted)]
-                  transition
-                  hover:text-[var(--ink)]
-                  md:right-6
-                  md:top-6
-                "
+                aria-label="Close modal"
+                className="grid h-9 w-9 place-items-center rounded-full border border-[var(--line)] bg-[var(--surface-soft)] text-[var(--ink-muted)] transition hover:text-[var(--ink)]"
               >
                 <X size={16} />
               </button>
-            </header>
+            </div>
 
-            {/* Scroll Content */}
-            <div
-              className="
-                overflow-y-auto
-                px-5
-                pb-6
-                md:px-10
-                md:pb-10
-              "
-            >
+            {/* Scrollable Body */}
+            <div className="overflow-y-auto px-6 py-6 md:px-8 md:py-8">
               <Section title="Overview">
                 <p>{project.overview}</p>
               </Section>
@@ -191,15 +93,7 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
                   {project.focus.map((item) => (
                     <div
                       key={item}
-                      className="
-                        rounded-xl
-                        border
-                        border-[var(--line)]
-                        p-4
-                        text-sm
-                        leading-6
-                        text-[var(--ink-muted)]
-                      "
+                      className="rounded-xl border border-[var(--line)] bg-[var(--surface-soft)] p-4 text-sm leading-6 text-[var(--ink-muted)]"
                     >
                       {item}
                     </div>
@@ -212,15 +106,7 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
                   {project.features.map((feature) => (
                     <div
                       key={feature}
-                      className="
-                        rounded-xl
-                        border
-                        border-[var(--line)]
-                        p-4
-                        text-sm
-                        leading-6
-                        text-[var(--ink-muted)]
-                      "
+                      className="rounded-xl border border-[var(--line)] bg-[var(--surface-soft)] p-4 text-sm leading-6 text-[var(--ink-muted)]"
                     >
                       {feature}
                     </div>
@@ -233,18 +119,7 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="
-                        rounded-lg
-                        border
-                        border-[var(--line)]
-                        px-3
-                        py-1
-                        font-mono
-                        text-[10px]
-                        uppercase
-                        tracking-[0.05em]
-                        text-[var(--ink-faint)]
-                      "
+                      className="rounded-lg border border-[var(--line)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.05em] text-[var(--ink-faint)]"
                     >
                       {tech}
                     </span>
@@ -252,63 +127,34 @@ function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
                 </div>
               </Section>
 
-              <div
-                className="
-                  mt-10
-                  flex
-                  flex-wrap
-                  gap-5
-                  border-t
-                  border-[var(--line)]
-                  pt-6
-                "
-              >
+              <div className="mt-8 flex flex-wrap gap-5 border-t border-[var(--line)] pt-6">
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="
-                      inline-flex
-                      items-center
-                      gap-2
-                      font-mono
-                      text-xs
-                      uppercase
-                      text-[var(--ink-muted)]
-                      hover:text-[var(--ink)]
-                    "
+                    className="inline-flex items-center gap-2 font-mono text-xs uppercase text-[var(--ink-muted)] hover:text-[var(--ink)]"
                   >
-                    GitHub
-                    <ArrowUpRight size={14} />
+                    GitHub <ArrowUpRight size={14} />
                   </a>
                 )}
-
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="
-                      inline-flex
-                      items-center
-                      gap-2
-                      font-mono
-                      text-xs
-                      uppercase
-                      text-[var(--accent-strong)]
-                    "
+                    className="inline-flex items-center gap-2 font-mono text-xs uppercase text-[var(--accent-strong)]"
                   >
-                    Live Demo
-                    <ArrowUpRight size={14} />
+                    Live Demo <ArrowUpRight size={14} />
                   </a>
                 )}
               </div>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }
 
@@ -320,27 +166,11 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mt-8 md:mt-10">
-      <h3
-        className="
-          font-mono
-          text-[10px]
-          uppercase
-          tracking-[0.16em]
-          text-[var(--ink-faint)]
-        "
-      >
+    <section className="mt-6 first:mt-0 md:mt-8">
+      <h3 className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
         {title}
       </h3>
-
-      <div
-        className="
-          mt-4
-          text-sm
-          leading-7
-          text-[var(--ink-muted)]
-        "
-      >
+      <div className="mt-2 text-sm leading-7 text-[var(--ink-muted)]">
         {children}
       </div>
     </section>
