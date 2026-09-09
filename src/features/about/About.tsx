@@ -36,21 +36,21 @@ function About() {
           {/* Story */}
           <div className="mt-8 max-w-3xl">
             <p className="text-lede text-[var(--ink-muted)]">
-              My journey into frontend development has been shaped by building
-              real projects, solving problems, and learning from every challenge
-              along the way.
+              I started learning frontend development through tutorials and
+              documentation, but made the most progress when I began building
+              projects without step-by-step instructions.
             </p>
 
             <p className="mt-5 text-base leading-8 text-[var(--ink-muted)]">
-              I started by learning through tutorials, but gradually realized
-              that real growth comes from creating things myself, making
-              decisions, and understanding why things work.
+              Building projects like DevDesk and FormFlow taught me more than
+              writing components. I had to make decisions about architecture,
+              state management, and how each part should work for the user.
             </p>
 
             <p className="mt-5 text-base leading-8 text-[var(--ink-muted)]">
-              Today, I focus on building practical products, improving my
-              engineering mindset, and becoming a better developer through
-              continuous iteration and collaboration.
+              I am still growing, but I now think beyond making a screen look
+              right. I care about clear structure, practical decisions, and
+              understanding the problems behind the code I write.
             </p>
           </div>
 

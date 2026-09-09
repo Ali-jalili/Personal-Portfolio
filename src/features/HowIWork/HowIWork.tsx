@@ -8,19 +8,19 @@ const steps = [
     number: "01",
     title: "Explore",
     description:
-      "Break down the problem, understand the requirements, and find the right technical direction before writing code.",
+      "Understand the requirements, think through the user flow, and identify the data and technical needs before writing code.",
   },
   {
     number: "02",
     title: "Build",
     description:
-      "Create solutions with clean structure, reusable components, and maintainable code that can grow over time.",
+      "Build with reusable components, clear responsibilities, and a maintainable structure that is easy to change.",
   },
   {
     number: "03",
     title: "Improve",
     description:
-      "Review decisions, fix weaknesses, and improve the product through iteration and real feedback.",
+      "Review technical decisions, reduce unnecessary complexity, and improve both the user experience and code quality.",
   },
 ];
 
