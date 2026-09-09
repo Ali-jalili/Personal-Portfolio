@@ -1,6 +1,6 @@
 /** @format */
 import { createPortal } from "react-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   X,
   CheckCircle2,
@@ -33,7 +33,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   if (!project) return null;
 
   return createPortal(
-    <AnimatePresence>
+    <>
       {/* 
         ۱. z-[9999] باعث می‌شود ۱۰۰٪ بالای نوبار بیفتد.
         ۲. overflow-hidden روی ظرف بیرونی مانع از اسکرول خوردن لایه‌ی تاریک می‌شود.
@@ -41,6 +41,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       */}
       <div
         onClick={onClose}
+        style={{ transform: "translateZ(0)" }}
         className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8 bg-black/75 backdrop-blur-md overflow-hidden"
       >
         <motion.div
@@ -49,6 +50,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ duration: 0.2 }}
           onClick={(e) => e.stopPropagation()}
+          style={{ willChange: "opacity, transform" }}
           /* 
             max-h-[85vh] و overflow-y-auto اسکرول را فقط به داخلِ باکسِ مودال محدود می‌کند.
           */
@@ -171,7 +173,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>,
+    </>,
     document.body,
   );
 }

@@ -2,6 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "../../types/project";
+import { useRevealOnView } from "../../hooks/useRevealOnView";
 
 interface ProjectCardProps {
   project: Project;
@@ -12,8 +13,13 @@ export default function ProjectCard({
   project,
   onOpenDetails,
 }: ProjectCardProps) {
+  const revealRef = useRevealOnView(0.15);
+
   return (
-    <div className="group flex flex-col justify-between rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-5 md:p-6 shadow-lg transition-all duration-300 hover:border-[var(--accent-strong)] hover:shadow-2xl">
+    <div
+      ref={revealRef}
+      className="motion-reveal project-card-reveal group flex flex-col justify-between rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-5 md:p-6 shadow-lg transition-all duration-300 hover:border-[var(--accent-strong)] hover:shadow-2xl"
+    >
       <div>
         {/* Project Thumbnail - Fixed image sizing and containment */}
         <div

@@ -1,8 +1,7 @@
 /** @format */
 
-import { motion } from "framer-motion";
-
-const ease = [0.22, 1, 0.36, 1] as const;
+import { type CSSProperties } from "react";
+import { useRevealOnView } from "../../hooks/useRevealOnView";
 
 const steps = [
   {
@@ -26,15 +25,13 @@ const steps = [
 ];
 
 function HowIWork() {
+  const revealRef = useRevealOnView(0.25);
+  const stepRevealRef = useRevealOnView(0.35);
+
   return (
     <section id="how-i-work" className="section-tight relative overflow-hidden">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.9, ease }}
-        >
+        <div ref={revealRef}>
           {/* Header */}
           <div className="flex items-center justify-between border-t border-[var(--line)] pt-7">
             <span
@@ -129,25 +126,12 @@ function HowIWork() {
               "
             >
               {steps.map((step, index) => (
-                <motion.article
+                <article
                   key={step.number}
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.35,
-                  }}
-                  transition={{
-                    duration: 0.7,
-                    delay: index * 0.12,
-                    ease,
-                  }}
+                  ref={stepRevealRef}
+                  style={
+                    { "--reveal-delay": `${index * 0.12}s` } as CSSProperties
+                  }
                   className="group relative min-w-0"
                 >
                   {/* Marker */}
@@ -224,7 +208,7 @@ function HowIWork() {
                       {step.description}
                     </p>
                   </div>
-                </motion.article>
+                </article>
               ))}
             </div>
           </div>
@@ -243,7 +227,7 @@ function HowIWork() {
               Explore → Build → Improve
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

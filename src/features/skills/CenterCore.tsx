@@ -1,18 +1,16 @@
 /** @format */
 
-import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
-
-const ease = [0.23, 1, 0.32, 1] as const;
+import { useRevealOnView } from "../../hooks/useRevealOnView";
 
 function CenterCore() {
+  const revealRef = useRevealOnView();
+
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease }}
+    <div
+      ref={revealRef}
       className="
+        motion-reveal-core
         absolute
         left-1/2
         top-1/2
@@ -20,8 +18,6 @@ function CenterCore() {
         flex
         h-36
         w-36
-        -translate-x-1/2
-        -translate-y-1/2
         flex-col
         items-center
         justify-center
@@ -86,7 +82,7 @@ function CenterCore() {
       >
         Product Stack
       </span>
-    </motion.div>
+    </div>
   );
 }
 

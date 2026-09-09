@@ -1,10 +1,7 @@
 /** @format */
 
-import { motion } from "framer-motion";
-
 import { ArrowUpRight, Mail } from "lucide-react";
-
-const ease = [0.22, 1, 0.36, 1] as const;
+import { useRevealOnView } from "../../hooks/useRevealOnView";
 
 const socials = [
   {
@@ -18,14 +15,13 @@ const socials = [
 ];
 
 function Contact() {
+  const revealRef = useRevealOnView(0.25);
+
   return (
     <section id="contact" className="section-tight relative overflow-hidden">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.9, ease }}
+        <div
+          ref={revealRef}
           className="relative border-t border-[var(--line)] pt-7"
         >
           {/* Header */}
@@ -226,7 +222,7 @@ function Contact() {
               Junior Frontend Developer
             </span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

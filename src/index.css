@@ -256,6 +256,16 @@
    TYPOGRAPHY
    ========================================================= */
 
+.hero-name {
+  margin-left: 0;
+}
+
+@media (max-width: 767px) {
+  .hero-name {
+    margin-left: 0.5rem;
+  }
+}
+
 .text-mega {
   font-family: var(--font-display);
   font-size: clamp(4rem, 11vw, 9.5rem);
@@ -544,4 +554,57 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+.motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-y, 24px), 0)
+    scale(var(--reveal-scale, 1));
+  transition:
+    opacity var(--reveal-duration, 0.9s) var(--ease-out) var(--reveal-delay, 0s),
+    transform var(--reveal-duration, 0.9s) var(--ease-out) var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.motion-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.motion-reveal-core {
+  --reveal-duration: 0.8s;
+  --reveal-scale: 0.9;
+  transform: translate3d(-50%, -50%, 0) scale(var(--reveal-scale));
+}
+
+.motion-reveal-core.motion-reveal-visible {
+  transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+.skill-card-hover {
+  transition: transform 0.25s var(--ease-out);
+}
+
+.skill-card-hover:hover {
+  transform: translate3d(0, -4px, 0) scale(1.025);
+}
+
+.hero-name {
+  animation: hero-name-reveal 0.7s var(--ease-out) both;
+}
+
+@keyframes hero-name-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.project-card-reveal {
+  --reveal-duration: 0.65s;
+  --reveal-y: 20px;
 }

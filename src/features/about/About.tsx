@@ -1,21 +1,15 @@
 /** @format */
 
-import { motion } from "framer-motion";
-
-const ease = [0.23, 1, 0.32, 1] as const;
+import { useRevealOnView } from "../../hooks/useRevealOnView";
 
 function About() {
+  const revealRef = useRevealOnView(0.3);
+
   return (
     <section id="about" className="section-tight relative overflow-hidden">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: 0.9,
-            ease,
-          }}
+        <div
+          ref={revealRef}
           className="relative border-t border-[var(--line)] pt-8"
         >
           {/* Section header */}
@@ -84,7 +78,7 @@ function About() {
               Open to frontend roles
             </span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

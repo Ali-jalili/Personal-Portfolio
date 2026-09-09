@@ -1,10 +1,8 @@
 /** @format */
 
-import { motion } from "framer-motion";
-
+import { type CSSProperties } from "react";
+import { useRevealOnView } from "../../hooks/useRevealOnView";
 import { skills } from "./skills.data";
-
-const ease = [0.23, 1, 0.32, 1] as const;
 
 type Skill = (typeof skills)[number];
 
@@ -16,29 +14,17 @@ type SkillCardProps = {
 
 function SkillCard({ skill, index, mobile = false }: SkillCardProps) {
   const Icon = skill.icon;
+  const revealRef = useRevealOnView(0.15);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 14, scale: 0.96 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{
-        duration: 0.65,
-        delay: 0.1 + index * 0.05,
-        ease,
-      }}
+    <div
+      ref={revealRef}
+      style={{ "--reveal-delay": `${0.1 + index * 0.05}s` } as CSSProperties}
       className={mobile ? "relative" : `absolute z-20 ${skill.position}`}
     >
-      <motion.div
-        whileHover={{
-          y: -4,
-          scale: 1.025,
-        }}
-        transition={{
-          duration: 0.25,
-          ease,
-        }}
+      <div
         className="
+          skill-card-hover
           group
           flex
           items-center
@@ -86,8 +72,8 @@ function SkillCard({ skill, index, mobile = false }: SkillCardProps) {
             {skill.category}
           </span>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 

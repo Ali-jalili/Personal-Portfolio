@@ -1,21 +1,15 @@
 /** @format */
 
-import { motion } from "framer-motion";
-
+import { useRevealOnView } from "../../hooks/useRevealOnView";
 import SkillMap from "./SkillMap";
 
-const ease = [0.23, 1, 0.32, 1] as const;
-
 function Skills() {
+  const revealRef = useRevealOnView(0.2);
+
   return (
     <section id="skills" className="section-tight relative overflow-hidden">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.9, ease }}
-        >
+        <div ref={revealRef}>
           {/* Header */}
           <div className="flex items-center justify-between border-t border-[var(--line)] pt-7">
             <span className="font-mono text-[15px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
@@ -54,7 +48,7 @@ function Skills() {
               08 technologies
             </span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

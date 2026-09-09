@@ -1,20 +1,14 @@
 /** @format */
 
-import { motion } from "framer-motion";
-
-const ease = [0.22, 1, 0.36, 1] as const;
+import { useRevealOnView } from "../../hooks/useRevealOnView";
 
 function Currently() {
+  const revealRef = useRevealOnView(0.3);
+
   return (
     <section id="currently" className="section-tight relative">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease }}
-          className="border-t border-[var(--line)] pt-7"
-        >
+        <div ref={revealRef} className="border-t border-[var(--line)] pt-7">
           {/* Header */}
           <div className="flex items-center justify-between">
             <span
@@ -185,7 +179,7 @@ function Currently() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

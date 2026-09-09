@@ -1,24 +1,18 @@
 /** @format */
 
-import { motion } from "framer-motion";
-
 import { ArrowDownToLine, ArrowUpRight, FileText } from "lucide-react";
-
-const ease = [0.22, 1, 0.36, 1] as const;
+import { useRevealOnView } from "../../hooks/useRevealOnView";
 
 function Resume() {
+  const revealRef = useRevealOnView(0.2);
+
   return (
     <section
       id="resume"
       className="section-tight relative overflow-hidden py-8 md:py-10"
     >
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease }}
-        >
+        <div ref={revealRef}>
           {/* Header */}
           <div className="flex items-center justify-between border-t border-[var(--line)] pt-6">
             <span className="font-mono text-[15px] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
@@ -261,7 +255,7 @@ function Resume() {
               </span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
