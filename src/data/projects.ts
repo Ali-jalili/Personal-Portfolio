@@ -3,10 +3,64 @@
 import devdeskImage from "../assets/projects/devdesk1.webp";
 import formflowImage from "../assets/projects/form1.webp";
 import nexusosImage from "../assets/projects/nexus.webp";
+import failstackImage from "../assets/projects/failstackImage.webp";
 
 import type { Project } from "../types/project";
 
 export const projects: Project[] = [
+  {
+    id: "failstack",
+
+    title: "FailStack",
+
+    description:
+      "An incident postmortem platform for documenting failures, analyzing root causes, and publishing engineering lessons.",
+
+    overview:
+      "FailStack is an incident postmortem platform that helps engineers document software failures through structured reports, investigate root causes, track architecture changes, and publish reviewed engineering lessons.",
+
+    problem:
+      "Incident reports can lack a consistent structure for documenting timelines, understanding root causes, and preserving lessons learned. FailStack provides a structured workflow for authoring, reviewing, and publishing incident postmortems.",
+
+    focus: [
+      "Feature-based Next.js application architecture",
+      "Multi-step form design and schema validation",
+      "Structured incident data modeling with TypeScript",
+      "Client-side and server-side validation",
+      "Draft, review, and publication workflow design",
+      "Idempotent handling of incident submissions",
+    ],
+
+    features: [
+      "Six-step incident report authoring",
+      "Structured incident timelines and root-cause trees",
+      "Architecture change documentation",
+      "Prevention action tracking",
+      "Draft saving and report resubmission",
+      "Reviewer feedback and publication workflow",
+      "Public incident archive with search and filters",
+    ],
+
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "React Hook Form",
+      "Zod",
+      "Tailwind CSS",
+    ],
+
+    githubUrl: "https://github.com/Ali-jalili/FailStack",
+
+    liveUrl: "https://failstack.vercel.app/",
+
+    image: failstackImage,
+
+    featured: true,
+  },
+
   {
     id: "devdesk",
 

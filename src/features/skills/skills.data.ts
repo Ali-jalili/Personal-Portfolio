@@ -9,6 +9,7 @@ import {
   Server,
   Terminal,
   Workflow,
+  Boxes,
 } from "lucide-react";
 
 export const skills = [
@@ -17,6 +18,12 @@ export const skills = [
     category: "Core",
     icon: Code2,
     position: "left-[2%] top-[11%]",
+  },
+  {
+    name: "Next.js",
+    category: "Core",
+    icon: Boxes,
+    position: "left-[48%] top-[23%]",
   },
   {
     name: "TypeScript",
