@@ -23,7 +23,7 @@ export const skills = [
     name: "Next.js",
     category: "Core",
     icon: Boxes,
-    position: "left-[48%] top-[23%]",
+    position: "left-[54%] top-[4%]",
   },
   {
     name: "TypeScript",

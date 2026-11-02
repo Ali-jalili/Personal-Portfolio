@@ -12,6 +12,8 @@ function SkillConnections() {
 
       <line x1="500" y1="300" x2="350" y2="55" stroke="var(--line-strong)" />
 
+      <line x1="500" y1="300" x2="580" y2="40" stroke="var(--line-strong)" />
+
       <line x1="500" y1="300" x2="890" y2="100" stroke="var(--line-strong)" />
 
       <line x1="500" y1="300" x2="950" y2="275" stroke="var(--line-strong)" />
