@@ -41,7 +41,7 @@ function Footer() {
             text-[var(--ink-faint)]
           "
         >
-          Designed & built with React · TypeScript
+          Designed & built with React · Next.js · TypeScript
         </p>
       </div>
     </footer>

@@ -45,7 +45,7 @@ function Skills() {
             </span>
 
             <span className="hidden font-mono text-[11px] text-[var(--ink-faint)] sm:block">
-              08 technologies
+              09 technologies
             </span>
           </div>
         </div>
