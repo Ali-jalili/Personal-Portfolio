@@ -12,12 +12,8 @@ function CharReveal({
   italic?: boolean;
 }) {
   return (
-    <span className={italic ? "serif-italic" : undefined}>
-      {text.split("").map((char, index) => (
-        <span key={`${char}-${index}`} className="char">
-          {char}
-        </span>
-      ))}
+    <span className={`char-reveal ${italic ? "serif-italic" : ""}`}>
+      {text}
     </span>
   );
 }

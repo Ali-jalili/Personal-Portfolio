@@ -49,8 +49,6 @@ function Navbar() {
             sm:px-5
             sm:py-3
             shadow-[0_8px_30px_rgba(0,0,0,0.04)]
-            backdrop-blur-none
-            md:backdrop-blur-xl
           "
         >
           {/* Brand */}
@@ -194,7 +192,6 @@ function Navbar() {
                   bg-[color:var(--surface)]/95
                   p-3
                   shadow-[0_20px_50px_rgba(0,0,0,0.08)]
-                  backdrop-blur-none
                   md:backdrop-blur-xl
                   md:hidden
                 "
