@@ -3,13 +3,16 @@
 import { motion } from "framer-motion";
 
 import { projects } from "../../data/projects";
-import ProjectGrid from "./ProjectGrid";
+import ProjectShowcase from "./ProjectShowcase";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 function Projects() {
   return (
-    <section id="projects" className="section-tight relative">
+    <section
+      id="projects"
+      className="section-tight relative scroll-mt-20 pt-8 md:scroll-mt-16"
+    >
       <div className="container min-w-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -23,7 +26,7 @@ function Projects() {
             </span>
 
             <span className="font-mono text-[15px] text-[var(--ink-faint)]">
-              03
+              {String(projects.length).padStart(2, "0")}
             </span>
           </div>
 
@@ -48,7 +51,7 @@ function Projects() {
           </div>
         </motion.div>
 
-        <ProjectGrid />
+        <ProjectShowcase />
       </div>
     </section>
   );
