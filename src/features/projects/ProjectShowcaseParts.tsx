@@ -81,6 +81,7 @@ export function ScreenshotFrame({
       <img
         src={src}
         alt={alt}
+        loading="lazy"
         decoding="async"
         className="h-full w-full object-contain"
       />

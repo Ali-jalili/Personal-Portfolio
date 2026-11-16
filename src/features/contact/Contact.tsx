@@ -86,7 +86,9 @@ function Contact() {
           <div className="mt-9 flex flex-wrap items-center gap-3">
             {/* Primary */}
             <a
-              href="mailto:ali.jalili.dev@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=ali.jalili.dev%40gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary group inline-flex items-center gap-2"
             >
               <Mail size={16} strokeWidth={1.5} aria-hidden="true" />
