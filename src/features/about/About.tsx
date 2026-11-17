@@ -26,9 +26,9 @@ function About() {
           {/* Main statement */}
           <div className="mt-12 max-w-5xl">
             <h2 className="text-heading text-[var(--ink)]">
-              I&apos;m a frontend developer who{" "}
+              I build thoughtful interfaces for{" "}
               <span className="serif-italic text-[var(--accent-strong)]">
-                learns by building.
+                better digital experiences.
               </span>
             </h2>
           </div>
@@ -36,21 +36,24 @@ function About() {
           {/* Story */}
           <div className="mt-8 max-w-3xl">
             <p className="text-lede text-[var(--ink-muted)]">
-              I started learning frontend development through tutorials and
-              documentation, but made the most progress when I began building
-              projects without step-by-step instructions.
+              I&apos;m a frontend developer interested in turning ideas and
+              complex workflows into clear, intuitive, and responsive user
+              experiences.
             </p>
 
             <p className="mt-5 text-base leading-8 text-[var(--ink-muted)]">
-              Building projects like DevDesk and FormFlow taught me more than
-              writing components. I had to make decisions about architecture,
-              state management, and how each part should work for the user.
+              I care about more than how an interface looks. I focus on writing
+              structured, maintainable code, building reusable components, and
+              making thoughtful decisions about state, accessibility, and
+              interaction.
             </p>
 
             <p className="mt-5 text-base leading-8 text-[var(--ink-muted)]">
-              I am still growing, but I now think beyond making a screen look
-              right. I care about clear structure, practical decisions, and
-              understanding the problems behind the code I write.
+              I&apos;m continuously improving my skills through hands-on
+              development and exploring better ways to solve problems. I&apos;m
+              looking for an opportunity to contribute to a team, learn from
+              experienced developers, and build products that make a meaningful
+              difference.
             </p>
           </div>
 
@@ -66,7 +69,7 @@ function About() {
             />
 
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
-              Learning through projects
+              Focused on frontend development
             </span>
 
             <span
@@ -75,7 +78,7 @@ function About() {
             />
 
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--accent-strong)]">
-              Open to frontend roles
+              Open to frontend opportunities
             </span>
           </div>
         </div>
