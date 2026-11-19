@@ -1,12 +1,13 @@
 /** @format */
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
 
 import { Menu, X } from "lucide-react";
 
 import ThemeToggle from "../components/ThemeToggle";
+import { useActiveSection } from "../hooks/useActiveSection";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -15,13 +16,21 @@ const navItems = [
   { label: "Process", href: "#how-i-work" },
   { label: "Resume", href: "#resume" },
 ];
+const sectionIds = navItems.map((item) => item.href.slice(1));
 
 const ease = [0.23, 1, 0.32, 1] as const;
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const [activeSection, setActiveSection] = useActiveSection(sectionIds);
 
   const closeMenu = () => setIsOpen(false);
+
+  const handleNavClick = (href: string) => {
+    setActiveSection(href.slice(1));
+    closeMenu();
+  };
 
   // Close the mobile menu when Escape is pressed. The keydown listener is
   // only attached while the menu is open and is cleaned up on close/unmount,
@@ -37,6 +46,28 @@ function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!navRef.current?.contains(event.target as Node)) closeMenu();
+    };
+    const handleScroll = () => closeMenu();
+    const handleResize = () => {
+      if (window.innerWidth >= 768) closeMenu();
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isOpen]);
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -12 }}
@@ -49,6 +80,7 @@ function Navbar() {
     >
       <div className="container">
         <nav
+          ref={navRef}
           className="
             relative
             flex
@@ -92,7 +124,12 @@ function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className="
+                onClick={() => handleNavClick(item.href)}
+                className={`
+                  relative
+                  rounded-full
+                  px-2.5
+                  py-1.5
                   font-sans
                   text-[14px]
                   font-medium
@@ -101,9 +138,21 @@ function Navbar() {
                   transition-colors
                   duration-300
                   hover:text-[var(--ink)]
-                "
+                  ${
+                    activeSection === item.href.slice(1)
+                      ? "text-[var(--accent-strong)]"
+                      : ""
+                  }
+                `}
               >
-                {item.label}
+                {activeSection === item.href.slice(1) && (
+                  <motion.span
+                    layoutId="active-nav-pill"
+                    transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                    className="absolute inset-0 rounded-full bg-[var(--accent-soft)]"
+                  />
+                )}
+                <span className="relative z-10">{item.label}</span>
               </a>
             ))}
           </div>
@@ -217,8 +266,11 @@ function Navbar() {
                     <a
                       key={item.href}
                       href={item.href}
-                      onClick={closeMenu}
+                      onClick={() => handleNavClick(item.href)}
                       className="
+                        flex
+                        items-center
+                        gap-2
                         rounded-xl
                         px-4
                         py-3
@@ -231,6 +283,14 @@ function Navbar() {
                         hover:text-[var(--ink)]
                       "
                     >
+                      <span
+                        aria-hidden="true"
+                        className={`h-1.5 w-1.5 rounded-full transition-colors ${
+                          activeSection === item.href.slice(1)
+                            ? "bg-[var(--accent)]"
+                            : "bg-transparent"
+                        }`}
+                      />
                       {item.label}
                     </a>
                   ))}
