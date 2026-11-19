@@ -5,12 +5,17 @@
 </p>
 
 <p align="center">
-  A personal portfolio about building thoughtful, useful web experiences.<br />
-  <a href="https://ali-jalili.vercel.app/">Visit the live portfolio</a>
-  ·
-  <a href="https://github.com/Ali-jalili">GitHub</a>
-  ·
-  <a href="https://www.linkedin.com/in/ali--jalili">LinkedIn</a>
+  <sub>PERSONAL PORTFOLIO&nbsp;&nbsp;·&nbsp;&nbsp;FRONTEND DEVELOPMENT&nbsp;&nbsp;·&nbsp;&nbsp;PRODUCT THINKING</sub>
+</p>
+
+<p align="center">
+  Building thoughtful, useful web experiences from idea to interface.
+</p>
+
+<p align="center">
+  <a href="https://ali-jalili.vercel.app/"><strong>Open the live portfolio ↗</strong></a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="#featured-work">Explore selected work</a>
 </p>
 
 ---
@@ -92,11 +97,24 @@ public/           # Static assets, social preview, and resume
 
 ## Get in touch
 
-I’m open to frontend opportunities and collaborative projects.
+<table>
+  <tr>
+    <td width="58%">
+      <strong>Have a product, problem, or idea in mind?</strong><br />
+      <sub>I’m open to frontend opportunities and collaborative projects.</sub>
+    </td>
+    <td align="right" valign="middle">
+      <a href="mailto:ali.jalili.dev@gmail.com"><strong>Start a conversation →</strong></a>
+    </td>
+  </tr>
+</table>
 
-- Email: [ali.jalili.dev@gmail.com](mailto:ali.jalili.dev@gmail.com)
-- LinkedIn: [linkedin.com/in/ali--jalili](https://www.linkedin.com/in/ali--jalili)
-- GitHub: [github.com/Ali-jalili](https://github.com/Ali-jalili)
+<p align="center">
+  <sub>Also find me on</sub><br />
+  <a href="https://www.linkedin.com/in/ali--jalili">LinkedIn</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://github.com/Ali-jalili">GitHub</a>
+</p>
 
 ---
 
