@@ -6,35 +6,31 @@ export function useActiveSection(sectionIds: string[]) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
-    const intersectionObserver = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-        if (visible[0]) setActiveSection(visible[0].target.id);
-      },
-      {
-        rootMargin: "-28% 0px -62%",
-        threshold: [0, 0.15, 0.5],
-      },
-    );
-
-    const observeSections = () => {
-      sectionIds
+    const updateActiveSection = () => {
+      const marker = window.innerHeight * 0.32;
+      const active = sectionIds
         .map((id) => document.getElementById(id))
         .filter((section): section is HTMLElement => Boolean(section))
-        .forEach((section) => intersectionObserver.observe(section));
+        .map((section) => ({ section, rect: section.getBoundingClientRect() }))
+        .filter(({ rect }) => rect.top <= marker && rect.bottom > marker)
+        .sort((a, b) => b.rect.top - a.rect.top)[0]?.section.id;
+
+      // Hero and Contact are intentionally not in the navItems list, so the
+      // indicator disappears while the user is in either boundary section.
+      setActiveSection(active ?? null);
     };
 
-    // Sections are lazy-loaded, so watch the DOM until their elements exist.
-    const mutationObserver = new MutationObserver(observeSections);
+    // Sections are lazy-loaded, so re-check when their elements appear.
+    const mutationObserver = new MutationObserver(updateActiveSection);
     mutationObserver.observe(document.body, { childList: true, subtree: true });
-    observeSections();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    updateActiveSection();
 
     return () => {
       mutationObserver.disconnect();
-      intersectionObserver.disconnect();
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
     };
   }, [sectionIds]);
 
