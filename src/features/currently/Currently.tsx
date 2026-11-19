@@ -30,7 +30,7 @@ function Currently() {
                 text-[var(--ink-faint)]
               "
             >
-              06
+              05
             </span>
           </div>
 
@@ -42,14 +42,14 @@ function Currently() {
                 text-[var(--ink)]
               "
             >
-              Focused on becoming a{" "}
+              Exploring the{" "}
               <span
                 className="
                   serif-italic
                   text-[var(--accent-strong)]
                 "
               >
-                better engineer.
+                next challenges.
               </span>
             </h2>
 
@@ -62,9 +62,9 @@ function Currently() {
                 text-[var(--ink-muted)]
               "
             >
-              I&apos;m focused on building real products, improving my frontend
-              architecture skills, and learning through practical engineering
-              problems and continuous iteration.
+              I&apos;m developing my skills in modern frontend development,
+              exploring application architecture, and taking on more complex
+              engineering challenges.
             </p>
           </div>
 
@@ -110,7 +110,7 @@ function Currently() {
                 </p>
               </div>
 
-              {/* Improving */}
+              {/* Exploring */}
               <div>
                 <span
                   className="
@@ -121,7 +121,7 @@ function Currently() {
                     text-[var(--ink-faint)]
                   "
                 >
-                  Improving
+                  Exploring
                 </span>
 
                 <p
@@ -131,7 +131,7 @@ function Currently() {
                     text-[var(--ink)]
                   "
                 >
-                  React & TypeScript Workflow
+                  Application Architecture
                 </p>
               </div>
 

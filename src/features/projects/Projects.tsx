@@ -26,7 +26,7 @@ function Projects() {
             </span>
 
             <span className="font-mono text-[15px] text-[var(--ink-faint)]">
-              {String(projects.length).padStart(2, "0")}
+              03
             </span>
           </div>
 

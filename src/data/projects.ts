@@ -1,9 +1,9 @@
 /** @format */
 
-import devdeskImage from "../assets/projects/devdesk1.png";
-import formflowImage from "../assets/projects/form1.png";
-import nexusosImage from "../assets/projects/nexus.png";
-import failstackImage from "../assets/projects/failstackImage.png";
+import devdeskImage from "../assets/projects/devdesk1.webp";
+import formflowImage from "../assets/projects/form1.webp";
+import nexusosImage from "../assets/projects/nexus.webp";
+import failstackImage from "../assets/projects/failstackImage.webp";
 
 import type { Project } from "../types/project";
 

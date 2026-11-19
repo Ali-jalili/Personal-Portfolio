@@ -20,7 +20,6 @@ function HeroActions() {
       {/* Primary */}
       <a
         href="#projects"
-        aria-label="View selected projects"
         className="
           btn-primary
           group
@@ -50,7 +49,6 @@ function HeroActions() {
       {/* Secondary */}
       <a
         href="#contact"
-        aria-label="Get in touch"
         className="
           btn-ghost
           group

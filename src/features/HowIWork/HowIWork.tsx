@@ -53,7 +53,7 @@ function HowIWork() {
                 text-[var(--ink-faint)]
               "
             >
-              05
+              04
             </span>
           </div>
 
@@ -93,8 +93,8 @@ function HowIWork() {
                 lg:justify-self-end
               "
             >
-              I focus on understanding the problem first, building with
-              intention, and improving the result through continuous iteration.
+              My approach starts with understanding the problem, choosing a
+              suitable solution, and considering the impact of each decision.
             </p>
           </div>
 

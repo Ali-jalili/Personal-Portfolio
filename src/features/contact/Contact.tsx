@@ -76,9 +76,8 @@ function Contact() {
                 text-[var(--ink-muted)]
               "
             >
-              I&apos;m looking for a team where I can contribute, learn from
-              experienced engineers, and continue building reliable frontend
-              products.
+              I&apos;m open to opportunities where I can contribute my skills,
+              learn through collaboration, and grow as a frontend developer.
             </p>
           </div>
 

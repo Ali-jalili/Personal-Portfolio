@@ -1,75 +1,103 @@
-# React + TypeScript + Vite
+# Ali Jalili — Frontend Developer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="./public/og-image.png" alt="Ali Jalili — Frontend Developer portfolio preview" width="100%" />
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  A personal portfolio about building thoughtful, useful web experiences.<br />
+  <a href="https://ali-jalili.vercel.app/">Visit the live portfolio</a>
+  ·
+  <a href="https://github.com/Ali-jalili">GitHub</a>
+  ·
+  <a href="https://www.linkedin.com/in/ali--jalili">LinkedIn</a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## About
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+I’m Ali, a frontend developer focused on turning ideas into clear, reliable products. I care about the details behind a good interface: accessible interactions, maintainable code, thoughtful product decisions, and the small moments that make software feel considered.
 
-## Expanding the ESLint configuration
+This portfolio brings together selected work, the way I approach building, what I’m learning, and ways to get in touch.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## What’s inside
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Selected projects** — product summaries, technical decisions, and live demos.
+- **How I work** — a practical, product-minded approach to solving problems.
+- **About & skills** — background, tools, and areas of focus.
+- **Currently** — what I’m learning and exploring now.
+- **Resume & contact** — a downloadable resume and direct links.
+- **Responsive interface** — designed for small and large screens, with light and dark themes.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Featured work
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Project | What it does | Links |
+| --- | --- | --- |
+| **FailStack** | Structures incident postmortems, root-cause analysis, review, and publication. | [Live demo](https://failstack.vercel.app/) · [Source](https://github.com/Ali-jalili/FailStack) |
+| **DevDesk** | Organizes API requests and documentation in a browser-based workspace. | [Live demo](https://devdesk-omega.vercel.app/) · [Source](https://github.com/Ali-jalili/DevDesk) |
+| **FormFlow** | Builds, publishes, and manages forms with a visual editor and response inbox. | [Live demo](https://form-flow-fawn.vercel.app/) · [Source](https://github.com/Ali-jalili/FormFlow) |
+| **NexusOS** | Connects agency clients, admins, and developers through role-based project workflows. | [Live demo](https://nexus-os-dashboard-seven.vercel.app/) · [Source](https://github.com/Ali-jalili/NexusOS-Platform) |
 
+## Built with
+
+<p>
+  <img alt="React" src="https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-6-3178c6?logo=typescript&logoColor=white" />
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white" />
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white" />
+  <img alt="Framer Motion" src="https://img.shields.io/badge/Framer_Motion-Animations-0055ff?logo=framer&logoColor=white" />
+</p>
+
+- **React + TypeScript** for typed, component-based UI.
+- **Vite** for development and production builds.
+- **Tailwind CSS** for responsive styling and design tokens.
+- **Framer Motion** for interface animation.
+- **Lucide** for lightweight interface icons.
+
+## Run locally
+
+You'll need Node.js and pnpm installed.
+
+```bash
+git clone https://github.com/Ali-jalili/Personal-Portfolio.git
+cd Personal-Portfolio
+pnpm install
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Vite starts the development server at `http://127.0.0.1:5182`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Available commands
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Start the local development server. |
+| `pnpm build` | Type-check and create a production build in `dist/`. |
+| `pnpm preview` | Preview the production build locally. |
+| `pnpm lint` | Run ESLint across the project. |
 
+## Project structure
+
+```text
+src/
+├── components/   # Shared UI and lazy-loaded page sections
+├── data/         # Project content
+├── features/     # Hero, about, skills, projects, and other sections
+├── hooks/        # Reusable React hooks
+├── layouts/      # Page layout and navigation
+└── types/        # Shared TypeScript types
+public/           # Static assets, social preview, and resume
 ```
+
+## Get in touch
+
+I’m open to frontend opportunities and collaborative projects.
+
+- Email: [ali.jalili.dev@gmail.com](mailto:ali.jalili.dev@gmail.com)
+- LinkedIn: [linkedin.com/in/ali--jalili](https://www.linkedin.com/in/ali--jalili)
+- GitHub: [github.com/Ali-jalili](https://github.com/Ali-jalili)
+
+---
+
+<p align="center"><sub>Designed and built by Ali Jalili · React · TypeScript</sub></p>

@@ -174,8 +174,8 @@ function HeroVisual() {
               text-[var(--ink-muted)]
             "
           >
-            I learn by building real products, questioning decisions, and
-            improving every iteration.
+            I&apos;m interested in understanding why things work the way they
+            do, not just how to make them work.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 /** @format */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -23,6 +23,20 @@ function Navbar() {
 
   const closeMenu = () => setIsOpen(false);
 
+  // Close the mobile menu when Escape is pressed. The keydown listener is
+  // only attached while the menu is open and is cleaned up on close/unmount,
+  // so there is no global listener listening when the menu is closed.
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMenu();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -12 }}
@@ -43,7 +57,7 @@ function Navbar() {
             rounded-full
             border
             border-[var(--line)]
-            bg-[color:var(--surface)]/80
+            bg-[color:var(--surface)]/92
             px-4
             py-2.5
             sm:px-5
@@ -133,6 +147,7 @@ function Navbar() {
               type="button"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
               onClick={() => setIsOpen((prev) => !prev)}
               className="
                 grid
@@ -162,6 +177,7 @@ function Navbar() {
           <AnimatePresence>
             {isOpen && (
               <motion.div
+                id="mobile-navigation"
                 initial={{
                   opacity: 0,
                   y: -8,
@@ -192,7 +208,7 @@ function Navbar() {
                   bg-[color:var(--surface)]/95
                   p-3
                   shadow-[0_20px_50px_rgba(0,0,0,0.08)]
-                  md:backdrop-blur-xl
+                  backdrop-blur-xl
                   md:hidden
                 "
               >

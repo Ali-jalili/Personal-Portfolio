@@ -27,7 +27,9 @@ export function TechPills({
       ))}
 
       {extra > 0 && (
-        <span className="inline-flex items-center rounded-lg border border-[var(--line)] bg-[var(--surface-soft)] px-2 py-1 text-[11px] font-medium text-[var(--ink-faint)]">
+        /* ink (not ink-muted) — the 11px text on the soft surface needs the
+           full 4.5:1 WCAG minimum. */
+        <span className="inline-flex items-center rounded-lg border border-[var(--line)] bg-[var(--surface-soft)] px-2 py-1 text-[11px] font-medium text-[var(--ink)]">
           +{extra}
         </span>
       )}

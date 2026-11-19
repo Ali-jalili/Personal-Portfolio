@@ -20,7 +20,7 @@ function Resume() {
             </span>
 
             <span className="font-mono text-[15px] text-[var(--ink-faint)]">
-              04
+              06
             </span>
           </div>
 
@@ -98,9 +98,9 @@ function Resume() {
                 </div>
 
                 <h2 className="text-heading text-[var(--ink)]">
-                  A detailed look at my{" "}
+                  A closer look at my{" "}
                   <span className="serif-italic text-[var(--accent-strong)]">
-                    frontend journey.
+                    work and capabilities.
                   </span>
                 </h2>
 

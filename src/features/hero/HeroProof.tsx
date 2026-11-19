@@ -11,8 +11,8 @@ const proof = [
     label: "Projects built",
   },
   {
-    value: "01",
-    label: "Developer tool",
+    value: "◉",
+    label: "Focus — product thinking",
   },
   {
     value: "∞",
@@ -82,7 +82,6 @@ function HeroProof() {
                   href={social.href}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noopener noreferrer" : undefined}
-                  aria-label={social.label}
                   className="
                     grid
                     h-9
@@ -100,12 +99,19 @@ function HeroProof() {
                   "
                 >
                   {typeof social.icon === "string" ? (
-                    <span className="font-mono text-xs font-medium">
+                    <span
+                      aria-hidden="true"
+                      className="font-mono text-xs font-medium"
+                    >
                       {social.icon}
                     </span>
                   ) : (
-                    social.icon
+                    <span aria-hidden="true">{social.icon}</span>
                   )}
+
+                  {/* Full accessible name (the visible mark is an
+                      abbreviation that would confuse screen readers). */}
+                  <span className="sr-only">{social.label}</span>
                 </a>
               </li>
             );
