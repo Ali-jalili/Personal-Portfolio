@@ -12,7 +12,7 @@ const proof = [
   },
   {
     value: "◉",
-    label: "Focus — Thoughtful Engineering",
+    label: "Focus — Engineering",
   },
   {
     value: "∞",
